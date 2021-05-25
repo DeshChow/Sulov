@@ -1,24 +1,76 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import Navbar from "./Components/Navbar/Navbar";
+import CategoryAdd from "./pages/Admin/Category/CategoryAdd/CategoryAdd";
+
+import ProductAdd from './pages/Admin/Product/ProductAdd/ProductAdd';
+import CategoryProduct from "./pages/CategoryProduct/CategoryProduct";
+import Home from './pages/Home/Home';
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import { categoryUrl, productUrl } from "./urls";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+    
+
+      <Switch>
+
+
+        <Route exact path='/'>
+
+
+          <Home></Home>
+
+
+        </Route>
+
+        
+
+        <Route exact path='/AddProduct'>
+
+          <ProductAdd />
+
+
+
+
+        </Route>
+
+        <Route exact path='/AddCategory'>
+
+      <CategoryAdd/>
+
+
+
+
+        </Route>
+
+        <Route  path={categoryUrl()}>
+
+     
+      <CategoryProduct/>
+
+
+
+        </Route>
+
+        <Route path= {productUrl()}>
+
+            <SingleProduct/>
+
+        </Route>
+
+
+      </Switch>
+
+
+    </Router>
   );
 }
 
