@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isLoading } from '../../../../constants/isLoading';
 import { categoryActions } from '../../../../redux/actions/categoryActions';
 import Sulov from '../../../../Sulov';
 const axios = require('axios');
@@ -14,7 +15,11 @@ const ProductAdd = () => {
 
      const dispatch = useDispatch( );
 
-     let category =  useSelector(state => state.category); 
+     const initData =  useSelector(state => state.category); 
+
+
+     const {category} = initData;
+     
 
       
      
@@ -125,6 +130,8 @@ const ProductAdd = () => {
 
 
     return (
+
+        !isLoading(category)?<div>loading</div>:
         <div className='container'>
 
             <form onSubmit={handleSubmit}>

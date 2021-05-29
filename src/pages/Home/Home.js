@@ -1,11 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Header } from '../../Components/Header/Header';
 import Navbar from '../../Components/Navbar/Navbar';
 import { categoryActions } from '../../redux/actions/categoryActions';
 import MainCategory from './MainCategory/MainCategory';
 import NewProduct from './NewProduct/NewProduct';
 import RandomProduct from './RandomProduct/RandomProduct';
+
 
 const Home = () => {
 
@@ -28,16 +30,23 @@ const Home = () => {
 
 
     return (
-        <div className='container'>
 
-            <MainCategory/>
-            <RandomProduct/>
-            <NewProduct/>
-  
-       
+    
+      
+         <React.Fragment>
+         
+       <Header/>
+
+         <MainCategory/>
+         
+             <RandomProduct/> 
+             <NewProduct/> 
+             
+       </React.Fragment>
+    
      
            
-        </div>
+        
     );
 };
 

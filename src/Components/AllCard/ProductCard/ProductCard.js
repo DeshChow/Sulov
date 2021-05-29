@@ -1,3 +1,4 @@
+import { Card } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { productUrl } from '../../../urls';
@@ -27,9 +28,9 @@ const ProductCard = (props) => {
 
 
     return (
-        <div>
-            <img onClick={()=>routeChange(title,_id)}  src={picurl}></img>
-        </div>
+        <Card>
+            <img style={{height:'12rem',width : '12rem'}} onClick={()=>routeChange(title,_id)}  src={picurl}></img>
+        </Card>
     );
 };
 

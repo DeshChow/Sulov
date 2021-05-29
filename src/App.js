@@ -11,6 +11,7 @@ import CategoryAdd from "./pages/Admin/Category/CategoryAdd/CategoryAdd";
 import ProductAdd from './pages/Admin/Product/ProductAdd/ProductAdd';
 import CategoryProduct from "./pages/CategoryProduct/CategoryProduct";
 import Home from './pages/Home/Home';
+import MainCategory from "./pages/Home/MainCategory/MainCategory";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import { categoryUrl, productUrl } from "./urls";
 
@@ -26,7 +27,7 @@ function App() {
         <Route exact path='/'>
 
 
-          <Home></Home>
+              <Home></Home>          
 
 
         </Route>
@@ -60,7 +61,7 @@ function App() {
 
         </Route>
 
-        <Route path= {productUrl()}>
+        <Route path={productUrl()}>
 
             <SingleProduct/>
 
