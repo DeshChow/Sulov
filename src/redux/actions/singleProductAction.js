@@ -5,9 +5,10 @@ import Sulov from '../../Sulov';
 export const singleProductAction = (id) => dispatch=>{
     
     
+   
     return Sulov.get(`/product/${id}`).then(res=>
         {
-            
+        
            
             return dispatch({
                 type : SINGLE_PRODUCT_LOAD,

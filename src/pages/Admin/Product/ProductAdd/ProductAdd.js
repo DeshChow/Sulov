@@ -9,7 +9,7 @@ const axios = require('axios');
 const ProductAdd = () => {
 
     const [info, setInfo] = useState({});
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState([]);
 
     
 
@@ -19,6 +19,8 @@ const ProductAdd = () => {
 
 
      const {category} = initData;
+
+     console.log(initData)
      
 
       
@@ -36,9 +38,13 @@ const ProductAdd = () => {
 
 
     const handleFileChange = (e) => {
-        const newFile = e.target.files[0];
+        const newFile = e.target.files;
+
+
 
         setFile(newFile);
+
+        console.log(newFile)
 
     }
 
@@ -55,7 +61,17 @@ const ProductAdd = () => {
         e.preventDefault();
 
         const formData = new FormData()
-        formData.append('file', file)
+        // formData.append('file', file)
+
+        const newFile = Object.values(file);
+
+        
+
+
+        newFile.forEach(f=>
+            {
+                formData.append('file',f);
+            })
 
         formData.append('status', info.status);
 
@@ -65,6 +81,8 @@ const ProductAdd = () => {
 
         formData.append('title', info.title);
         formData.append('price', info.price);
+
+        formData.append('description', info.description);
 
         formData.append('categoryTitle',info.categoryTitle);
         formData.append('categoryId',info.categoryId);
@@ -159,7 +177,7 @@ const ProductAdd = () => {
                     id="inputItemCount" placeholder="itemCount" required />
 
                 <label htmlFor="exampleInputName5"><b>image</b></label>
-                <input className="form-control" onChange={handleFileChange} type='file'></input>
+                <input className="form-control" onChange={handleFileChange} type='file' multiple></input>
 
 
                     <div >
@@ -180,6 +198,13 @@ const ProductAdd = () => {
                     <span >Active</span></label>
                     <label> <input onChange={onChangeStatus} type="radio" value='inactive' name="status"  required/>
                     <span >Inactive</span></label>
+
+
+                    <div className="form-group">
+                        <label ><b>Item Details</b></label>
+                        <textarea onBlur={handleBlur} class="form-control" name="description" 
+                        placeholder="Write Something About Your Product" rows="10"></textarea>
+                    </div>
 
 
 

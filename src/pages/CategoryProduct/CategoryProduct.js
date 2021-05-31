@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import ProductCard from '../../Components/AllCard/ProductCard/ProductCard';
 import { isLoading } from '../../constants/isLoading';
 import { singleCategoryAction } from '../../redux/actions/singleCategoryAction';
+import './CategoryProduct.css';
 
 // const CategoryProduct = () => {
 
@@ -161,19 +162,18 @@ const {products} = data;
        
         </div>
       </Drawer>
-      <main className={classes.content}>
-        <Toolbar />
+      <main className={classes.content} style={ {backgroundColor: '#ededed'}} >
+      <Toolbar />
+        
+        <Container maxWidth='xl'>
 
-        <Container maxWidth='lg'>
 
-        <Grid container spacing={4} justify='center'>
-
-     
+        <Grid container spacing={2} justify='center' wrap='wrap'>
 
         {
                         isLoading(products) ? products.map(ct =>
 
-                            <Grid  item xs={12} sm={6} md={4} >
+                            <Grid  item >
                                 <ProductCard key={ct._id} data={ct}></ProductCard>
                             </Grid>
                         )
@@ -181,20 +181,26 @@ const {products} = data;
 
                     }
 
-
-
-      
-            
-
-
-       
-
             </Grid>
 
         </Container>
+        {/* <div className="container-fluid" style={ {backgroundColor: '#ededed'}}>
+         <div className="d-flex  flex-wrap align-items-center justify-content-center stl">
+         {
+                        isLoading(products) ? products.map(ct =>
+
+                            
+                                <ProductCard key={ct._id} data={ct}></ProductCard>
+                            
+                        )
+                            : <div>Loadding</div>
+
+                    }
+
+         </div>
+         </div> */}
 
         
-       
       </main>
     </div>
   );

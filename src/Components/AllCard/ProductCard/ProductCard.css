@@ -1,0 +1,196 @@
+/* .mainCard{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    align-items: center;
+}  */
+
+.cardContent{
+    position: relative;
+    width: 270px;
+    height: 345px;
+    margin: 10px 0px 0px 10px;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);   
+    /*border: 3px ridge rgba(255, 255, 255, 0.2);*/ 
+    font-family: Verdana;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.imgWrap{
+    height: 265px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    transition: all .6s;
+}
+
+.imgWrap img{
+    
+    width: 80%;
+    height: 80%;
+}
+
+.cardContent:hover .imgWrap{
+    /* padding-top: 20px; */
+    transform-origin: top;
+    background-color: #ededed;
+    transform: scale(0.6) translateY(20px);
+}
+
+.contentWrap{
+    background-color:  white !important;
+    transition: all .6s;
+}
+
+.cardContent:hover .contentWrap{
+    transform: translateY(-100px);
+}
+
+.innerContentWrap{
+    transition: all .6s;
+}
+
+.cardContent:hover .innerContentWrap{
+    transform: translateY(-40px);
+}
+
+.title{
+    margin: 0px 0 10px 0;
+    /* align-items: center;  */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardContent:hover .title{
+     margin-bottom: 20px; 
+    color: #fe6c2d;
+}
+
+.price{
+    color: #fe6c2d;
+    transition: all .0s;
+}
+
+.cardContent:hover .price{
+    opacity: 0;
+}
+
+.priceStyle{
+    color: black;
+    font-size: 18px; 
+    font-family: Verdana !important;
+}
+
+.cardContent:hover .priceStyle{
+    opacity: 0;
+}
+
+.innerTK{
+    opacity: 0;
+}
+
+.cardContent:hover .innerTK{
+    opacity: 1;
+}
+
+.innerPrice{
+    opacity: 0;
+    color: #fe6c2d;
+    transition: all .4s;
+}
+
+.cardContent:hover .innerPrice{
+    opacity: 1;
+}
+
+.available::before{
+    content: "In Stock!";
+    opacity: 0;
+    transition: all .4s;
+}
+
+.cardContent:hover .available::before{
+    opacity: 1;
+}
+
+.notAvailable::before{
+    content: "Not In Stock!";
+    opacity: 0;
+    transition: all .4s;
+}
+
+.cardContent:hover .notAvailable::before{
+    opacity: 1;
+}
+
+/* .innerItemCount{
+    opacity: 0;
+    color: #fe6c2d;
+    transition: all .4s;
+}
+
+.cardContent:hover .innerItemCount{
+    opacity: 1;
+} */
+
+
+.iconsCard{
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0,0,0,0.05);
+
+    opacity: 0;
+    transition: all .4s;
+}
+
+.cardContent:hover .iconsCard{
+    opacity: 1;
+}
+
+.iconCard{
+    font-size: 22px;
+    cursor: pointer;
+
+    transition: all .4s;
+}
+
+.iconCard:hover{
+    color: #fe6c2d;
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.cornerStyle::before{
+    content: "";
+    background: #fe6c2d;
+    display: flex;
+    justify-content: center;
+    width: 130px;
+    align-items: center;
+    position: absolute;
+    letter-spacing: 1px;
+    transform-origin: top;
+    padding-top: 20px;
+    right: -115px;
+    height: 40px;
+    top: -50px;
+    transform: rotate(45deg);
+    z-index: 1;
+
+    transition: all .5s;
+}
+
+.cardContent:hover .cornerStyle::before{
+    padding-top: 120px;
+}
