@@ -1,5 +1,5 @@
 import React from 'react';
-import { SINGLE_PRODUCT_LOAD } from '../../constants/types';
+import { SINGLE_CLEAR_PRODUCT, SINGLE_PRODUCT_LOAD } from '../../constants/types';
 import Sulov from '../../Sulov';
 
 export const singleProductAction = (id) => dispatch=>{
@@ -18,4 +18,11 @@ export const singleProductAction = (id) => dispatch=>{
         })
         .catch(err=>console.log(err))
 };
+
+export const  singleClearProductAction = ()=>{
+
+    return {
+        type : SINGLE_CLEAR_PRODUCT
+    }
+}
 

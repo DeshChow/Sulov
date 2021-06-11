@@ -52,3 +52,9 @@ input:focus{
     cursor: pointer;
     border: 1px solid gray;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

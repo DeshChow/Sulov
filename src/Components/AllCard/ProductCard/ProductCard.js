@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { productUrl } from '../../../urls';
 import './ProductCard.css';
 import {picUrl} from '../../../constants/picUrl'
+import { Link } from 'react-router-dom';
 
 const ProductCard = (props) => {
 
@@ -24,7 +25,7 @@ const ProductCard = (props) => {
     {
         console.log(product);
 
-      return history.push(productUrl(product,id));
+      return history.replace(productUrl(product,id));
 
 
     }
@@ -36,11 +37,13 @@ const ProductCard = (props) => {
       
 
     return (
+
+        <Link to={productUrl(title,_id)}>
         <div className="mainCard">
         <div className="cardContent">
 		 <div className="cornerStyle"></div>
 		<div className="imgWrap">
-        <img  onClick={()=>routeChange(title,_id)}  src={ picUrl(pic[0]) }></img>
+        <img   src={ picUrl(pic[0]) }></img>
 		</div>
 		<div className="contentWrap">
 			<h3 className="title">{title}</h3>
@@ -62,6 +65,7 @@ const ProductCard = (props) => {
 		</div>
         </div>
 	</div>
+    </Link>
     
     );
 };

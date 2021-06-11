@@ -19,3 +19,13 @@ export const productUrl =(product,id)=>
 
     
 }
+
+export const checkOutUrl = ()=>
+{
+    return '/Sulov/chechout';
+}
+
+export const userOrderUrl = ()=>
+{
+    return '/Sulov/Order'
+}

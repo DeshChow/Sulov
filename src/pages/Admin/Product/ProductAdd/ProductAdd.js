@@ -102,6 +102,8 @@ const ProductAdd = () => {
         })
             .then(response => response.json())
             .then(data => {
+
+                if(data.insertCount)alert('successfully')
                 console.log(data)
 
 

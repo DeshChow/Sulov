@@ -1,0 +1,130 @@
+.cart-page{
+    margin: 5px auto;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background-color: #ed5217;
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 5px;
+}
+
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.icon-del{
+    color: #ed5217;
+    margin: 20px; 
+    cursor: pointer;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table{
+    border-top: 3px solid #ed5217;
+    width: 100%;
+    max-width: 400px;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .cart-info p{
+        display: none; 
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+
+}
+
+
+
+/* .order{
+    margin: 80px auto;
+    background-color: #ff523b;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    height: 30px;
+}
+
+.order p{
+    padding: 5px;
+}
+
+.order-details{
+    background-color: aqua;
+} */
+
+.order-tab{
+    margin: 5px auto;
+}
+
+.order-tab-full{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.order-para{
+    background-color: #ed5217;
+    color: white;
+    font-weight: normal;
+}
+
+.order-para-sp{
+    text-align: center !important;
+}
+
+.order-row{
+
+    background-color: white;
+
+}
+
+.order-para-details{
+    text-align: center !important;
+    border-bottom: 1px solid #ddd;
+}
+
+@media only screen and (max-width: 600px) {
+
+}

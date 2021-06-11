@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import ProductCard from '../../Components/AllCard/ProductCard/ProductCard';
 import { isLoading } from '../../constants/isLoading';
-import { singleCategoryAction } from '../../redux/actions/singleCategoryAction';
+import { clearSingleCategoryAction, singleCategoryAction } from '../../redux/actions/singleCategoryAction';
 import './CategoryProduct.css';
 
 // const CategoryProduct = () => {
@@ -58,6 +58,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Container, Grid } from '@material-ui/core';
+import NavbarInside from '../../Components/NavbarInside/NavbarInside';
 
 const drawerWidth = 240;
 
@@ -104,6 +105,10 @@ const {products} = data;
 
       dispatch(singleCategoryAction(id));
 
+      return dispatch(clearSingleCategoryAction());
+
+      
+
 
     
   }, []);
@@ -111,14 +116,8 @@ const {products} = data;
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar  position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            Clipped drawer
-          </Typography>
-        </Toolbar>
-      
-      </AppBar>
+     
+     <NavbarInside/>
       <Drawer
         className={classes.drawer}
         variant="permanent"
