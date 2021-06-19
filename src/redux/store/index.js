@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import reduxThunk from 'redux-thunk';
+import adminInitReducer from "../reducers/adminInitReducers";
 import categoryReducers from "../reducers/categoryReducers";
 import shoppingCartReducers from "../reducers/shoppingCartReducers";
 import singleCategoryReducers from "../reducers/singleCategoryReducers";
@@ -29,6 +30,8 @@ const rootReducers=combineReducers({
      singleCategory : singleCategoryReducers,
 
      singleProduct : singleProductReducers,
+
+     adminInitData : adminInitReducer,
 
 
 

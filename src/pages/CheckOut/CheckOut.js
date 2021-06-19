@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   layout: {
+    
     width: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
@@ -108,7 +109,8 @@ export default function Checkout() {
       <CssBaseline />
       
       <NavbarInside/>
-
+       
+       <div style={{background : "#222B45" , width : "100%",top: "0",position : "absolute",minHeight : "100vh"}}>
      
       <main className={classes.layout}>
         <Paper className={classes.paper}>
@@ -157,6 +159,7 @@ export default function Checkout() {
         </Paper>
         <Copyright />
       </main>
+      </div>
     </React.Fragment>
   );
 }

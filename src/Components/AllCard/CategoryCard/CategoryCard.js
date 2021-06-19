@@ -35,20 +35,27 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1,
       transform: 'translateY(0px)',
      },
-     opacity: 0.7,
+      opacity: 0.7,
       transform: 'translateY(-20px)',
     },
     '& $cardContent':{
       postion: 'relative',
-      background: 'rgba(76, 175, 80, 0.5)',
-      color: 'white',
+      // background: 'rgba(76, 175, 80, 0.6)',
+      background: 'rgba(0,0,0, 0.5)',
+      color: 'white !important',
+      typography: {
+        fontFamily: [
+          'Roboto',
+          'sans-serif'
+        ].join(','),
+      },
       textTransform: 'uppercase',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center',
       fontSize: '2rem',
-      fontWeight: '900px',
+      fontWeight: '900',
       zIndex: 3,
       opacity: 0,
       transform: 'translateY(30px)',
@@ -114,8 +121,8 @@ return (
                   <CardContent  className={classes.cardContent}>
                 
                     <Typography>
-                        <h2>{title}</h2>
-                        <button>See More</button>
+                       <h2>{title}</h2>
+                       <button className="card-button">See More</button>
                     </Typography>
         
                   </CardContent> 

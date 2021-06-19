@@ -1,0 +1,9 @@
+.spimg{
+    position: absolute;
+    object-fit: cover; 
+    left: 0px;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; */
+
+}

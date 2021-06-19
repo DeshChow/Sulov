@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../../Components/Header/Header';
 import Navbar from '../../Components/Navbar/Navbar';
 import { categoryActions } from '../../redux/actions/categoryActions';
+import ContactUS from './ContactUS/ContactUS';
 import MainCategory from './MainCategory/MainCategory';
 import NewProduct from './NewProduct/NewProduct';
 import RandomProduct from './RandomProduct/RandomProduct';
@@ -41,7 +42,7 @@ const Home = () => {
          
              <RandomProduct/> 
              <NewProduct/> 
-             
+             <ContactUS/>
        </React.Fragment>
     
      

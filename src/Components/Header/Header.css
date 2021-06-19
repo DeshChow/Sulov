@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap');
+.full-preview{
+  background-color: rgb(26, 33, 56);
+  transform: rotate(0deg) 
+  /* border-radius: 0 50% 50% 0; */
+  
+}
+
 .headerNav{
   display: flex;
   width: 90%;
@@ -6,6 +15,9 @@
   align-items: center;
 }
 
+.logo-container h4,i{
+  color: white;
+}
 .logo-container,.navLinks{
   display: flex;
 }
@@ -16,17 +28,21 @@
 }
 
 a:link{
-  color: orange;
+  color: white;
 }
 
+a:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
 .navLink{
-  color: orange;
+  color: white;
   font-size: 18px;
   text-decoration: none;
 }
 
 .navLink:hover {
-  border-bottom: 4px solid yellowgreen;
+  border-bottom: 4px solid #00ab55;
   transition: all 0.2s ease-out;
 }
 
@@ -66,11 +82,86 @@ a:link{
 }
 
 .intro-text h1{
-  font-size: 44px;
-  font-weight: 2000;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Indie Flower', cursive; 
+  font-size: 3.75rem;
+  font-weight: 900;
   background: linear-gradient(to right, #494964, #6f6f89);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: yellowgreen;
+  -webkit-text-fill-color: #fff;
+}
+
+.text1{
+  font-size: 100px !important;
+  font-weight: 900;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to right, #494964, #6f6f89);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #00ab55 !important;
+}
+
+.text2{
+  margin-left: 100px;
+  font-size: 100px !important;
+  font-weight: 900;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to right, #494964, #6f6f89);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #00ab55 !important;
+}
+
+.text3{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.25rem;
+  /* width: 0ch;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: textStyle 6s steps(3) infinite alternate;
+  border-right: 3px solid #00ab55;
+  color: white */
+}
+
+/* .search-style{
+  margin-left: 120px;
+  width: 100%;
+}
+
+.form-style{
+  width: 485px;
+  height: 38px !important;
+  background: seagreen;
+} */
+
+.box{
+  position: absolute;
+  margin-left: 200px ;
+  width: 500px;
+}
+
+.box input{
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+input[type="search"]{
+
+  background: #fff;
+  color: black;
+  width: 340px;
+  height: 45px;
+  border: none;
+  outline: none;
+  padding: 0 25px;
+  border-radius: 25px 25px 25px 25px;
+
+}
+
+.btn-style{
+  margin-left: 10px;
+  height: 40px !important;
+  border-radius: 25px 25px 25px 25px !important;
 }
 
 .intro-text p{
@@ -81,17 +172,34 @@ a:link{
 
 .cta{
   padding: 50px 0px 0px 0px;
+  margin-left: 200px;
 }
 
 .cta-submit{
-  border: 2px solid yellowgreen;
-  background: transparent;
-  color: yellowgreen;
+  border: 1px solid #00ab55;
+  margin-left: 10px;
+  border-radius: 25px 25px 25px 25px;
+  background: #00ab55;
+  color: white;
   width: 150px;
   height: 50px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cta-submitMore{
+  margin-left: 20px;
+  border: 1px solid #00ab55;
+  border-radius: 25px 25px 25px 25px;
+  background: #00ab55;
+  color: white;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 .cover{
   flex: 1;
@@ -101,13 +209,18 @@ a:link{
 }
 .cover img{
   height: 100%;
+  width: 100%;
+  background-size: cover;
+  margin-left: 200px;
   animation: dropimg 1.5s ease;
+  animation: blob 5s linear infinite;
 }
 
 .back-img{
   position: absolute;
-  height: 100vh;
-  width: 68%;
+  height: 100%;
+  width: 85%;
+  object-fit: cover;
   content: " ";
   top: 0px;
   right: 0px;
@@ -137,6 +250,30 @@ a:link{
     transform: translateX(-0px);
   }
 }
+
+@keyframes blob{
+  0%,100%{
+    border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+  } 
+  25%{
+    border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%;
+  }
+  50%{
+    border-radius: 28% 72% 44% 56% / 49% 40% 60% 51%;
+  }
+  75%{
+    border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+  }
+}
+
+/* @keyframes textStyle{
+  0%{
+    width: 0ch;
+  }
+  50%{
+    width: 3ch;
+  }
+} */
 
 
 @media screen and (max-width: 960px){

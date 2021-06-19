@@ -18,8 +18,8 @@ const NewProduct = () => {
                 <Container className="my-md-5">
                     <Col xs={12}>
                         <div className="pricing-title text-center">
-                            <span>Best Pricing Plan</span>
-                            <h2>Services Packages</h2>
+                            <span>New For You</span>
+                            <h2>New Arrival Product</h2>
                         </div>
                     </Col>
                     <Row>

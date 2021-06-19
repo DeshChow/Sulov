@@ -1,7 +1,7 @@
 .pricing-section {
     position: relative;
-    padding: 6.25rem 0 5rem;
-    background: #f8f8f8;
+    padding: 20px;
+    background: rgb(34, 43, 69);
   }
   
   .pricing-section a {
@@ -9,22 +9,21 @@
   }
   
   .pricing-title > span {
+    text-align: center;
     font-size: 1rem;
-    color: #ed5217;
+    color: #00ab55;
     text-transform: capitalize;
     display: block;
-    margin-top: -0.6em;
   }
   
   .pricing-title h2 {
-    margin: 0.3em 0 0;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #444;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    position: relative;
-    margin-top: 15px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      padding-bottom: 20px;
+      position: relative;
+      margin: 15px 0 50px;
   }
   
   .pricing-title {
@@ -39,7 +38,7 @@
     bottom: 0;
     width: 5rem;
     height: 3px;
-    background: #ed5217;
+    background: #00ab55;
     border-radius: 20px;
     left: 50% !important;
     -webkit-transform: translateX(-50%);

@@ -1,10 +1,26 @@
- .sty{
+ /* .sty{
     margin-left: 40px;
     border-radius: 10px;
     padding: 20px 20px 20px 20px;
     align-items: center;
-    box-shadow: 15px 15px 15px 15px #f2f3f5;
+     box-shadow: 15px 15px 15px 15px #f2f3f5;  
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: white;
+
+} */
+
+.sty{
+    height: 14rem;
+    width: 14rem;
+    margin-left: 40px;
+    /* border-radius: 25px 25px 25px 25px; */
+    border-radius: 50%;
+    object-fit: cover;
+    /* padding: 20px 20px 20px 20px; */
+    align-items: center;
+    /* box-shadow: 15px 15px 15px 15px #f2f3f5;  */
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+    background-color: white;
 }
- 

@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
 import NavbarInside from "./Components/NavbarInside/NavbarInside";
+import Admin from "./pages/Admin/Admin";
 import CategoryAdd from "./pages/Admin/Category/CategoryAdd/CategoryAdd";
 
 import ProductAdd from './pages/Admin/Product/ProductAdd/ProductAdd';
@@ -87,6 +88,12 @@ function App() {
          <OrderDetails/>
 
         </Route>
+
+        <Route path='/sulov/admin/:id'>
+
+<Admin/>
+
+</Route>
 
         <Route path={userOrderUrl()}>
 

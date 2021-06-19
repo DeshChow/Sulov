@@ -1,7 +1,7 @@
 import React from 'react';
 import { picUrl } from '../../../constants/picUrl';
 
-import { Col, Row, Tab } from 'react-bootstrap';
+import { Col, Container, Row, Tab } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const NewProductDesign = (props) => {
 
     return (
         <Tab.Pane eventKey={id + 1}>
-            <Row>
+            <Row >
                 <Col lg={12} md={12} xs={12}>
                   
                         <div className={`pricing-img-${id + 1}`}>
@@ -25,7 +25,7 @@ const NewProductDesign = (props) => {
                                 <h4><Link to="/">{title}</Link></h4>
                                 {/* <p>{description.slice(0, 94)}</p> */}
                             </div>
-                            <img style={{height:'20rem'}} src={picUrl(pic)} alt="" />
+                            <img style={{height:'20%'}} src={picUrl(pic)} alt="" />
                         </div>
                   
                 </Col>

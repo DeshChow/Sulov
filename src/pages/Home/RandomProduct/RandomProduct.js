@@ -14,28 +14,39 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
 
     randomRoot:{
-        background: '#ECF3FF',
-        paddingBottom : theme.spacing(5),
+        background: 'rgb(26, 33, 56)',
+        paddingBottom : theme.spacing(10),
         paddingTop : theme.spacing(5)
     }
-    ,  headP: {
-        textAlign:'center',
-        fontSize: '1rem',
-        color: '#ed5217',
-        textTransform: 'capitalize',
-        display: 'block',
-        paddingTop : '10px'
-        
-    },
-    head :{
-        textAlign:'center',
-        fontSize: '2rem',
-        fontWeight: '600',
-        color: '#444',
-        paddingBottom: '20px',
-        position: 'relative',
-        margin: '15px 0 10px'
-    }
+    ,   headP: {
+      textAlign:'center',
+      fontSize: '1rem',
+      color: '#00ab55',
+      textTransform: 'capitalize',
+      display: 'block',
+      paddingTop: '20px'
+  },
+  head :{
+      textAlign:'center',
+      fontSize: '2rem',
+      fontWeight: '600',
+      color: '#fff',
+      paddingBottom: '20px',
+      position: 'relative',
+      margin: '15px 0 50px',
+      '&::before': {
+          content: '" "',
+          position: 'absolute',
+          left: '0',
+          bottom: '0',
+          width: '5rem',
+          height: '3px',
+          background: '#00ab55',
+          borderRadious: '20px',
+          left: '50% !important',
+          transform: 'translateX(-50%)',
+      },
+  }
 
    
   }));
@@ -76,12 +87,12 @@ const RandomProduct = () => {
     <Container maxWidth="xl" className={classes.randomRoot}>
 
 <Typography className={classes.headP}  gutterBottom>
-                               What to Buy
+                               You Can Like
                     </Typography>
 
 
                         <Typography className={classes.head}  gutterBottom>
-                                Choose Your Category
+                                Find Your Product
                         </Typography>
 
 
@@ -109,8 +120,10 @@ const RandomProduct = () => {
 
 
 randomProduct.map(ran=>
-<Card className='sty'><img style={{height:'14rem',width :'10rem'}}  src={picUrl(ran.pic)}></img></Card>)
 
+  <Card className='sty'><img style={{height:'70%',width :'70%',marginTop: '30px'}}  src={picUrl(ran.pic)}></img></Card>)
+  
+  // <Card className='sty'><img style={{height:'14rem',width :'10rem'}}  src={picUrl(ran.pic)}></img></Card>)
 
 
 : <div>Loading</div>
