@@ -20,6 +20,7 @@ import MainCategory from "./pages/Home/MainCategory/MainCategory";
 import OrderDetails from "./pages/OrderDetails/OrderDetails";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import { categoryUrl, checkOutUrl, productUrl, userOrderUrl } from "./urls";
+import Login from './pages/Login/Login';
 
 
 export const UserContext = createContext();
@@ -103,6 +104,13 @@ function App() {
 
       </UserContext.Provider>
          
+
+        </Route>
+
+        <Route path='/login'>
+
+          <Login/>
+
 
         </Route>
 

@@ -8,9 +8,17 @@ import pic7 from '../../images/On line store1.png';
 import blob from '../../images/blob-haikei.svg';
 
 import './Header.css';
+import { useHistory } from 'react-router-dom';
 
 
 export const Header = () => {
+
+    const history = useHistory();
+
+    const routeChange = (str) =>
+    {
+        history.push(str)
+    }
     return (
        <div className='container-fluid full-preview'>
 
@@ -29,6 +37,7 @@ export const Header = () => {
                         <li><a className="navLink" href="#">Products</a></li>
                         <li><a className="navLink" href="#">Services</a></li>
                         <li> <i className="fas fa-shopping-cart cart"> </i></li>
+                        <li onClick = {()=>routeChange('/login')} style={{color : "white"}}> Sing IN</li>
                     </ul>
                 </nav>
             

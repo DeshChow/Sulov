@@ -3,6 +3,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import reduxThunk from 'redux-thunk';
 import adminInitReducer from "../reducers/adminInitReducers";
+import authReducers from "../reducers/authReducers";
 import categoryReducers from "../reducers/categoryReducers";
 import shoppingCartReducers from "../reducers/shoppingCartReducers";
 import singleCategoryReducers from "../reducers/singleCategoryReducers";
@@ -21,7 +22,7 @@ const persistConfig = {
 
 const rootReducers=combineReducers({
     
-     auth : ()=>"fahim",
+     auth :  authReducers,
 
      shoppingCart :  shoppingCartReducers,
 

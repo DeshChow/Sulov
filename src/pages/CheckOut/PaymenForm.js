@@ -5,7 +5,10 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { UserContext } from '../../App';
-
+import SplitForm from './SplitForm';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+const stripePromise = loadStripe("pk_test_51JDrYEKTfmuDXMYnphIAu6XcFvNbiwQOuZ4XuPqDAIYDdPCFOM0GMBPcnOhI8pRA1Um0ateSO3gEndfjzUstf8AJ0034OeVUNc");
 export default function PaymentForm() {
 
     const [orderInfo,setOrderInfo] = useContext(UserContext);
@@ -79,7 +82,17 @@ export default function PaymentForm() {
             onChange = {handleBlur}
           />
         </Grid>
+
+      
+      
       </Grid>
+
+      <Elements stripe={stripePromise}>
+
+<SplitForm/>
+
+</Elements>
+      
     </React.Fragment>
   );
 }
