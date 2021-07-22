@@ -11,10 +11,12 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
-import PaymentForm from './PaymenForm';
+import PaymentForm from './PaymentForm';
 import Review from './Review';
 import NavbarInside from '../../Components/NavbarInside/NavbarInside';
 import { UserContext } from '../../App';
+import StripeContainer from './StripeContainer';
+import swal from 'sweetalert';
 
 function Copyright() {
   return (
@@ -69,22 +71,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Shipping address', 'Review your order','Payment details'];
 
-function getStepContent(step) {
-
-
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
 
 export default function Checkout() {
 
@@ -92,11 +80,54 @@ export default function Checkout() {
 
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const [orderId,setOrderId] = React.useState('');
 
-    const [orderInfo,setOrderInfo] = useContext(UserContext);
+  const [orderInfo,setOrderInfo] = useContext(UserContext);
+
+
+  
+
+  
+function getStepContent(step) {
+
+
+  switch (step) {
+    case 0:
+      return <AddressForm />;
+    case 1:
+      return  <Review />;
+    case 2:
+      return  <StripeContainer setActiveStep = {setActiveStep} setOrderId = {setOrderId} />;
+    default:
+      throw new Error('Unknown step');
+  }
+}
 
     
   const handleNext = () => {
+
+    if(activeStep==0)
+    {
+
+      console.log(orderInfo,typeof(orderInfo));
+
+      let size=0;
+
+      for(let key in orderInfo)
+      {
+        if(orderInfo.hasOwnProperty(key) && orderInfo[key].length)size++;
+      }
+
+      console.log(size);
+
+
+      
+
+     if(size!==8)
+     return swal('You must fill up all the fields')
+
+    }
+   
     setActiveStep(activeStep + 1);
   };
 
@@ -131,14 +162,13 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Your order number is {orderId}.
                 </Typography>
               </React.Fragment>
             ) : (
-              <React.Fragment>
+            <React.Fragment>
                 {getStepContent(activeStep)}
-                <div className={classes.buttons}>
+                {activeStep === steps.length - 1 ?<></> :     <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
                       Back
@@ -149,10 +179,12 @@ export default function Checkout() {
                     color="primary"
                     onClick={handleNext}
                     className={classes.button}
+
+                   
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  Next
                   </Button>
-                </div>
+                </div>}
               </React.Fragment>
             )}
           </React.Fragment>

@@ -37,7 +37,7 @@ export const Header = () => {
                         <li><a className="navLink" href="#">Products</a></li>
                         <li><a className="navLink" href="#">Services</a></li>
                         <li> <i className="fas fa-shopping-cart cart"> </i></li>
-                        <li onClick = {()=>routeChange('/login')} style={{color : "white"}}> Sing IN</li>
+                        <li onClick = {()=>routeChange('/login')} style={{color : "white"}}> SIGN IN</li>
                     </ul>
                 </nav>
             

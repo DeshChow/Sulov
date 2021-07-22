@@ -1,0 +1,28 @@
+.adminWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 100%
+}
+
+.adminimgWrapdetails{
+    width: 180px;
+    height: 180px;
+}
+.rowContent{
+
+    
+    display : flex;
+
+    flex-wrap : wrap;
+    
+    flex-direction : row;
+    justify-content : center !important;
+    width : 100%;
+    margin : auto;
+    align-items : center !important;
+    text-align : center;
+
+    margin-top:  20px;
+}
+

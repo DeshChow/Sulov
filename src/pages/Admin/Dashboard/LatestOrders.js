@@ -98,7 +98,7 @@ const LatestOrders = ({latestOrder}) => {
 
    
 
-    return latestOrder===undefined? <></> : <Card>
+    return latestOrder===undefined? <div></div> : <Card>
     <CardHeader title="Latest Orders" />
     <Divider />
     <PerfectScrollbar>

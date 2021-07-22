@@ -45,7 +45,8 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             onChange = {handleBlur}
-            value={orderInfo["firstName"]}
+           
+         
           
           />
         </Grid>
@@ -58,7 +59,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             onChange = {handleBlur}
-            value={orderInfo["lastName"]}
+            
             
           />
         </Grid>
@@ -71,7 +72,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line1"
             onChange = {handleBlur}
-            value={orderInfo["address1"]}
+           
           />
         </Grid>
         <Grid item xs={12}>
@@ -82,7 +83,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line2"
             onChange = {handleBlur}
-            value={orderInfo["address2"]}
+          
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -94,14 +95,14 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             onChange = {handleBlur}
-            value={orderInfo["city"]}
+          
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField id="state" name="state" label="State/Province/Region" fullWidth
 
 onChange = {handleBlur}
-value={orderInfo["state"]}
+
           
           />
         </Grid>
@@ -114,7 +115,7 @@ value={orderInfo["state"]}
             fullWidth
             autoComplete="shipping postal-code"
             onChange = {handleBlur}
-            value={orderInfo["zip"]}
+        
 
             
           />
@@ -128,16 +129,10 @@ value={orderInfo["state"]}
             fullWidth
             autoComplete="shipping country"
             onChange = {handleBlur}
-            value={orderInfo["country"]}
+         
           />
         </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
-            value={orderInfo["saveAddress"]}
-          />
-        </Grid>
+       
       </Grid>
     </React.Fragment>
   );

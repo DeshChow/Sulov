@@ -7,6 +7,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import { UserContext } from '../../App';
 import { useSelector } from 'react-redux';
+import { TotalPrice } from '../../utilities/totalProductPrice';
+import { TotalProductPrice } from './../../utilities/totalProductPrice';
 
 // const products = [
 //   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
@@ -39,24 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const TotalPrice=React.memo(props=>
-    {
-        const {products} = props;
 
-        let sum=0;
-
-
-        products.forEach(pd => {
-
-            sum+=pd.price;
-
-            
-        });
-
-        sum=sum+Math.ceil(0.07*sum);
-
-        return `৳ ${sum.toFixed(2)}`;
-    })
 
 export default function Review() {
 
@@ -65,6 +50,8 @@ export default function Review() {
   const [orderInfo,setOrderInfo] = useContext(UserContext);
 
   const products = useSelector(st=>st.shoppingCart);
+
+  console.log(products);
 
 
   
@@ -86,37 +73,12 @@ export default function Review() {
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
            
-           <TotalPrice products={products}/>
+        {products!=undefined &&  TotalProductPrice(products,1)}
 
           </Typography>
         </ListItem>
       </List>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
-          </Typography>
-          <Typography gutterBottom>{ orderInfo.firstName } {orderInfo.lastName}</Typography>
-          <Typography gutterBottom>{ orderInfo.address1}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
-          </Grid>
-        </Grid>
-      </Grid>
+     
     </React.Fragment>
   );
 }

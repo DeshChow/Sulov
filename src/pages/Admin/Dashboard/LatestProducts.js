@@ -22,7 +22,7 @@ const LatestProducts = ({latestProduct}) => {
 
   
 
-  return latestProduct==undefined? <></> :   <Card>
+  return latestProduct==undefined? <div></div> :   <Card>
     <CardHeader  subtitle={`${latestProduct.length} in total`}
       title="Latest Products"
     />
