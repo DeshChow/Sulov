@@ -62,7 +62,8 @@
     display: flex;
     align-items: center !important;
     justify-content: center !important;
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    background-color: gainsboro;
 }
 
 .left-side img{

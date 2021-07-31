@@ -12,6 +12,57 @@
     padding: 20px;
 }
 
+#productTitle{
+    font-family: "Amazon Ember",Arial,sans-serif;
+    color: #0F1111;
+    font-weight: 400;
+    font-size: 24px !important;
+    word-break: break-word;
+    text-align: justify;
+    margin-right: 20px;
+}
+
+#productDetails{
+    font-family: "Amazon Ember",Arial,sans-serif;
+    word-break: break-word;
+    text-align: justify;
+    margin-right: 20px;
+
+}
+
+#categoryTitle{
+    text-transform: uppercase;
+}
+
+#categoryTitleFull{
+    text-decoration: none;
+    color: #007185;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#categoryTitleFull:hover{
+    border-bottom: 1px solid #007185;
+
+}
+
+#availability{
+    color: orangered;
+}
+
+#singleTaka{
+    font-family: "Roboto",Arial,sans-serif;
+    color: #212121;
+    letter-spacing: 0;
+    line-height: 1.4;
+    font-weight: 500;
+    font-size: 28px;
+    vertical-align: sub;
+
+}
+
+
+
 .singleProduct h4{
     margin: 20px 0;
     font-size: 22px;
@@ -27,10 +78,10 @@
 .singleProduct input{
     width: 50px;
     height: 40px;
-    padding-left: 10px;
+    padding-left: 20px;
     font-size: 20px;
-    margin-right: 10px;
-    border: 1px solid #ff523b;
+    /* margin-right: 10px; */
+    border: none;
 }
 
 input:focus{
@@ -57,4 +108,15 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+  
+}
+
+.spinner{
+    border-radius: 50%;
+    border: none;
+}
+
+.addToCartBtn{
+    background-color: orangered;
+    margin-right: 20px;
 }

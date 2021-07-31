@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
+      background: '#007185'
     },
     list: {
         width: 250,

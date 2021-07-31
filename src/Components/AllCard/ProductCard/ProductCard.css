@@ -60,17 +60,20 @@
     transform: translateY(-40px);
 }
 
-.title{
+.titleName{
     margin: 0px 0 10px 0;
     /* align-items: center;  */
     text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
 }
 
-.cardContent:hover .title{
+.cardContent:hover .titleName{
      margin-bottom: 20px; 
     color: #fe6c2d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
 }
 
 .price{
@@ -130,7 +133,7 @@
     opacity: 1;
 }
 
-/* .innerItemCount{
+ .innerItemCount{
     opacity: 0;
     color: #fe6c2d;
     transition: all .4s;
@@ -138,7 +141,7 @@
 
 .cardContent:hover .innerItemCount{
     opacity: 1;
-} */
+} 
 
 
 .iconsCard{
@@ -194,3 +197,4 @@
 .cardContent:hover .cornerStyle::before{
     padding-top: 120px;
 }
+

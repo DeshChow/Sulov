@@ -27,14 +27,16 @@
   list-style: none;
 }
 
-a:link{
+/* a:link{
   color: white;
 }
 
 a:hover{
   color: white !important;
   text-decoration: none !important;
-}
+} */
+
+
 .navLink{
   color: white;
   font-size: 18px;

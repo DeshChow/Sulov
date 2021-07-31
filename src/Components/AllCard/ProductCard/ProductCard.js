@@ -46,7 +46,7 @@ const ProductCard = (props) => {
         <img   src={ picUrl(pic[0]) }></img>
 		</div>
 		<div className="contentWrap">
-			<h3 className="title">{title}</h3>
+			<h3 className="titleName">{title}</h3>
             
             <i className="fas fa-tag price" /><span className="priceStyle"> Tk.{price}</span>
             {/* <p className="price">{price}</p> */}
@@ -65,7 +65,7 @@ const ProductCard = (props) => {
 		</div>
         </div>
 	</div>
-    </Link>
+     </Link>
     
     );
 };

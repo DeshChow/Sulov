@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactUS.css';
 import leftimg from '../../../images/undraw_Profile_data_re_v81r.svg';
+import lleftimg from '../../../images/blogging.svg';
 
 const ContactUS = () => {
     return (
@@ -17,7 +18,7 @@ const ContactUS = () => {
                     <div className="right-top-corner"></div>
                     <div className="right-bottom-corner"></div>
                     <div className="container left-side">
-                        <img src={leftimg}></img>
+                        <img src={lleftimg}></img>
                     </div>
                     <div className="container right-side contactForm">
                         <h2>Send Your Message</h2>
