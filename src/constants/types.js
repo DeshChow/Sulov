@@ -21,3 +21,5 @@ export const ADMIN_GET_USERINFO = "ADMIN_GET_USERINFO";
 export const  AUTH_INFO_LOAD = "AUTH_INFO_LOAD";
 
 export const ALL_PRODUCT_LOAD = "ALL_PRODUCT_LOAD";
+
+export const USER_CONTACT = "USER_CONTACT"

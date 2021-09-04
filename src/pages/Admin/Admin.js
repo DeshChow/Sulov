@@ -1,33 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Dashboard from './Dashboard/Dashboard';
-import { useDispatch } from 'react-redux';
-import { adminInitAction } from '../../redux/actions/adminInitActions';
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Dashboard from "./Dashboard/Dashboard";
+import { useDispatch } from "react-redux";
+import { adminInitAction } from "../../redux/actions/adminInitActions";
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
 
-
-import { Link as RouterLink, useHistory, useLocation, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import {
-  Avatar,
-  Box,
-  Button,
-
-
-  Hidden,
-
-} from '@material-ui/core';
+  Link as RouterLink,
+  useHistory,
+  useLocation,
+  useParams,
+} from "react-router-dom";
+import PropTypes from "prop-types";
+import { Avatar, Box, Button, Hidden } from "@material-ui/core";
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
@@ -36,66 +32,66 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
-} from 'react-feather';
-import ProductsInfo from './ProductsInfo';
-import CustomersInfo from './CustomersInfo';
-
+  Users as UsersIcon,
+} from "react-feather";
+import ProductsInfo from "./ProductsInfo";
+import CustomersInfo from "./CustomersInfo";
+import Contact from "./Contact/Contact";
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  avatar: "/static/images/avatars/avatar_6.png",
+  jobTitle: "Senior Developer",
+  name: "Katarina Smith",
 };
 
 const items = [
   {
-    href: '/app/dashboard',
+    href: "/app/dashboard",
     icon: BarChartIcon,
-    title: 'Dashboard'
+    title: "Dashboard",
   },
   {
-    href: '/app/customers',
+    href: "/app/customers",
     icon: UsersIcon,
-    title: 'Customers'
+    title: "Customers",
   },
   {
-    href: '/app/products',
+    href: "/app/products",
     icon: ShoppingBagIcon,
-    title: 'Products'
+    title: "Products",
   },
   {
-    href: '/app/account',
+    href: "/app/account",
     icon: UserIcon,
-    title: 'Account'
+    title: "Account",
   },
   {
-    href: '/app/settings',
+    href: "/app/settings",
     icon: SettingsIcon,
-    title: 'Settings'
+    title: "Settings",
   },
   {
-    href: '/login',
+    href: "/login",
     icon: LockIcon,
-    title: 'Login'
+    title: "Login",
   },
   {
-    href: '/register',
+    href: "/register",
     icon: UserPlusIcon,
-    title: 'Register'
+    title: "Register",
   },
   {
-    href: '/404',
+    href: "/404",
     icon: AlertCircleIcon,
-    title: 'Error'
-  }
+    title: "Error",
+  },
 ];
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -108,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerContainer: {
-    overflow: 'auto',
+    overflow: "auto",
   },
   content: {
     flexGrow: 1,
@@ -117,66 +113,42 @@ const useStyles = makeStyles((theme) => ({
 
     background: "#171C24",
 
-    minHeight: "100vh"
+    minHeight: "100vh",
   },
 }));
 
 export default function Admin() {
-
-   const {id} = useParams();
-
- 
+  const { id } = useParams();
 
   const classes = useStyles();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const history = useHistory();
 
-
-
-  const routeChange=(path)=>
-  {
-        
-
-        history.push(`/sulov/admin/${path}`);
-      
-  }
-
-
-
-
+  const routeChange = (path) => {
+    history.push(`/sulov/admin/${path}`);
+  };
 
   useEffect(() => {
-
-
     dispatch(adminInitAction());
-
-
-
-
   }, []);
 
+  const PageComponent = () => {
+    switch (id) {
+      case "products":
+        return <ProductsInfo />;
 
-  const PageComponent=()=>
-  {
-   
+      case "customers":
+        return <CustomersInfo />;
 
-    switch(id){
+      case "contact":
+        return <Contact/>
 
-      case 'products' : return <ProductsInfo/>
-
-      case 'customers' : return <CustomersInfo/>
-
-      default : return <Dashboard/>
-
-         
+      default:
+        return <Dashboard />;
     }
-
-
-
-
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -197,63 +169,45 @@ export default function Admin() {
       >
         <Toolbar />
         <div className={classes.drawerContainer}>
-
           <Box sx={{ p: 2 }}>
             <List>
-
-
-     <div style={{ marginTop: "20px" }} onClick={()=>routeChange('dashboard')}>
-
-
+              <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange("dashboard")}
+              >
                 <BarChartIcon />
-
-
                 Dashboard
-
-
-
               </div>
 
-              <div style={{ marginTop: "20px" }} onClick={()=>routeChange('customers')}>
-
-
+              <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange("customers")}
+              >
                 <UsersIcon />
-
-
                 Customers
-
-
-
               </div>
 
-              <div style={{ marginTop: "20px" }} onClick={()=>routeChange('products')}>
-
-
+              <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange("products")}
+              >
                 <ShoppingBagIcon />
-
-
                 Products
-
-
-
               </div>
 
-
-
+              <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange("contact")}
+              >
+                <ShoppingBagIcon />
+                User Contact
+              </div>
             </List>
           </Box>
-
         </div>
       </Drawer>
       <main className={classes.content}>
-
-
-
-   
-
-      <PageComponent/>
-
-
+        <PageComponent />
       </main>
     </div>
   );
