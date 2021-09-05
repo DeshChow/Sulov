@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-import ProductCard from '../../Components/AllCard/ProductCard/ProductCard';
-import { isLoading } from '../../constants/isLoading';
-import { clearSingleCategoryAction, singleCategoryAction } from '../../redux/actions/singleCategoryAction';
-import './CategoryProduct.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useHistory } from "react-router";
+import ProductCard from "../../Components/AllCard/ProductCard/ProductCard";
+import { isLoading } from "../../constants/isLoading";
+import {
+  clearSingleCategoryAction,
+  singleCategoryAction,
+} from "../../redux/actions/singleCategoryAction";
+import "./CategoryProduct.css";
 
 // const CategoryProduct = () => {
 
@@ -13,17 +16,13 @@ import './CategoryProduct.css';
 //     const {id} = useParams();
 
 //   const data = useSelector(state => state.singleCategory);
-  
+
 //   const {products} = data;
-
-
 
 //     useEffect(() => {
 
 //         dispatch(singleCategoryAction(id));
 
-
-      
 //     }, []);
 //     return (
 //         <div>
@@ -33,38 +32,38 @@ import './CategoryProduct.css';
 //                    {
 //                        products.map(pd=><ProductCard key={pd._id} data={pd}/>)
 //                    }
-//                </div> : <p>loadding</p>   
+//                </div> : <p>loadding</p>
 
-//            } 
+//            }
 //         </div>
 //     );
 // };
 
 // export default CategoryProduct;
 
-
-
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { Container, Grid } from '@material-ui/core';
-import NavbarInside from '../../Components/NavbarInside/NavbarInside';
+import { makeStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+import { Container, Grid } from "@material-ui/core";
+import NavbarInside from "../../Components/NavbarInside/NavbarInside";
+import { categoryActions } from "./../../redux/actions/categoryActions";
+import { categoryUrl } from "./../../urls/index";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -77,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerContainer: {
-    overflow: 'auto',
+    overflow: "auto",
   },
   content: {
     flexGrow: 1,
@@ -85,39 +84,54 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function CategoryProduct() {
-
-
+function CategoryProduct() {
   const classes = useStyles();
-
 
   const dispatch = useDispatch();
 
-  const {id} = useParams();
+  const { id } = useParams();
 
-const data = useSelector(state => state.singleCategory);
+  const data = useSelector((state) => state.singleCategory);
 
-const {products} = data;
+  const category = useSelector((state) => state.category.category);
 
+  const { products } = data;
 
+  const history = useHistory();
+
+  const routeChange = (category, id) => {
+    return history.push(categoryUrl(category, id));
+  };
 
   useEffect(() => {
+    dispatch(singleCategoryAction(id));
 
-      dispatch(singleCategoryAction(id));
+   
 
-      return dispatch(clearSingleCategoryAction());
+    return dispatch(clearSingleCategoryAction());
+  }, [id]);
 
-      
+  useEffect(() => {
+   
 
+    dispatch(categoryActions());
 
-    
+    return ()=>
+    {
+
+    }
   }, []);
 
-  return (
+
+  // console.log('one ',category[0]);
+
+  return category === undefined ? (
+    <div>Loading</div>
+  ) : (
     <div className={classes.root}>
       <CssBaseline />
-     
-     <NavbarInside/>
+
+      <NavbarInside />
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -125,63 +139,102 @@ const {products} = data;
           paper: classes.drawerPaper,
         }}
       >
-
-
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-           
-            
-            
-            <ListItem button >
-                <ListItemIcon> <InboxIcon /> </ListItemIcon>
 
-
-                <ListItemText primary={'desh'} />
-
-
-
-
-              </ListItem>
-
+            <ListItem
+              button
+              onClick={() => routeChange(category[0].title, category[0]._id)}
+            >
+              <ListItemIcon>
               
-          
-              <ListItem button >
-                <ListItemIcon><MailIcon /> </ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[0].title} />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() => routeChange(category[1].title, category[1]._id)}
+            >
+              <ListItemIcon>
+              
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[1].title} />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() => routeChange(category[2].title, category[2]._id)}
+            >
+              <ListItemIcon>
+              
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[2].title} />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() => routeChange(category[3].title, category[3]._id)}
+            >
+              <ListItemIcon>
+              
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[3].title} />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() => routeChange(category[4].title, category[4]._id)}
+            >
+              <ListItemIcon>
+              
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[4].title} />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() => routeChange(category[5].title, category[5]._id)}
+            >
+              <ListItemIcon>
+              
+                <InboxIcon />
+              </ListItemIcon>
+
+              <ListItemText primary={category[5].title} />
+            </ListItem>
 
 
-                <ListItemText primary={'shojib'} />
-
-
-
-
-              </ListItem>
           </List>
-        
-       
         </div>
       </Drawer>
-      <main className={classes.content} style={ {backgroundColor: '#ededed'}} >
-      <Toolbar />
-        
-        <Container maxWidth='xl'>
+      <main className={classes.content} style={{ 
+        backgroundColor: "#ededed",minHeight  : "100vh" }}>
+        <Toolbar />
 
-
-        <Grid container spacing={2} justify='center' wrap='wrap'>
-
-        {
-                        isLoading(products) ? products.map(ct =>
-
-                            <Grid  item >
-                                <ProductCard key={ct._id} data={ct}></ProductCard>
-                            </Grid>
-                        )
-                            : <Grid>Loadding</Grid>
-
-                    }
-
-            </Grid>
-
+        <Container maxWidth="xl">
+          <Grid container spacing={2} justify="center" wrap="wrap">
+            {isLoading(products) ? (
+              products.map((ct) => (
+                <Grid item>
+                  <ProductCard key={ct._id} data={ct}></ProductCard>
+                </Grid>
+              ))
+            ) : (
+              <Grid>Loadding</Grid>
+            )}
+          </Grid>
         </Container>
         {/* <div className="container-fluid" style={ {backgroundColor: '#ededed'}}>
          <div className="d-flex  flex-wrap align-items-center justify-content-center stl">
@@ -198,8 +251,6 @@ const {products} = data;
 
          </div>
          </div> */}
-
-        
       </main>
     </div>
   );

@@ -7,6 +7,9 @@ import './AdminProductCard.css';
 import { Paper } from '@material-ui/core';
 import swal from 'sweetalert';
 import axios from 'axios';
+import { useHistory } from 'react-router';
+import ProductUpdate from './../../../pages/Admin/Product/ProductUpdate/ProductUpdate';
+import { productUpdateurl } from './../../../urls/index';
 
 const useStyles = makeStyles({
     root: {
@@ -32,6 +35,18 @@ const AdminProductCard = (props) => {
 
     const {title,pic,star,itemCount,price,status,_id} = props.pd;
 
+    const {setState,state} = props;
+
+    const history = useHistory();
+
+    const routeChange=()=>
+    {
+        history.push(
+            productUpdateurl(_id))
+        // console.log('amaisiiaiaia', productUpdateurl(_id))
+    }
+
+   
     const handleDelete=()=>
     {
         return swal({
@@ -56,7 +71,9 @@ const AdminProductCard = (props) => {
                     icon: "success",
                   });
 
-              window.location.reload(false);
+                  setState(!state)
+
+            //   window.location.reload(false);
 
            
            
@@ -127,12 +144,13 @@ const AdminProductCard = (props) => {
 //             </CardContent>
 //         </Card>
 
-<Paper  className={classes.root}>
+<Paper  className={classes.root} >
              <div  className="adminWrap">
                  <h4 >{title}</h4>
              </div>
              <div className="adminWrap" >
-                 <img className="adminimgWrapdetails"  src={ picUrl(pic[0]) }></img>
+                 <img className="adminimgWrapdetails"  
+                 src={ picUrl(pic[0]) } alt=''></img>
  		    </div>
             
           <div className='rowContent' >  
@@ -159,7 +177,11 @@ const AdminProductCard = (props) => {
 
                
                 
-                }} >UPDATE</Button>
+                }}
+
+                onClick={routeChange}
+                
+                >UPDATE</Button>
 
 
 

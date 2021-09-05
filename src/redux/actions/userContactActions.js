@@ -1,22 +1,17 @@
+import Sulov from "../../Sulov";
+import { USER_CONTACT } from './../../constants/types';
 
-import Sulov from '../../Sulov';
+export const userContactActions = () => (dispatch) => {
 
-export const useContactActions = () => dispatch=>{
-    
-    
-   
-    return Sulov.get(`user/contact`).then(res=>
-        {
 
-            console.log(res);
-        
-           
-            return dispatch({
-               
-                payload : {...res.data.result}
-            })
+  return Sulov.get(`user/contact`)
+    .then((res) => {
+      console.log('okkk ',res);
 
-        })
-        .catch(err=>console.log(err))
+      return dispatch({
+        payload: res.data.contacts,
+        type : USER_CONTACT
+      });
+    })
+    .catch((err) => console.log(err));
 };
-

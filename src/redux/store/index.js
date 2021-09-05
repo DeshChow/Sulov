@@ -9,6 +9,7 @@ import shoppingCartReducers from "../reducers/shoppingCartReducers";
 import singleCategoryReducers from "../reducers/singleCategoryReducers";
 import singleProductReducers from "../reducers/singleProductReducers";
 import allProductReducer from '../reducers/allProductReducer'
+import userContactReducer from './../reducers/userContactReducer';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -34,7 +35,9 @@ const rootReducers=combineReducers({
 
      adminInitData : adminInitReducer,
 
-     allProduct : allProductReducer
+     allProduct : allProductReducer,
+
+     userContact:  userContactReducer
 
 
 

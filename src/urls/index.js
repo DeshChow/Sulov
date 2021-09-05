@@ -12,7 +12,7 @@ export const categoryUrl = (category,id)=>
 
 export const productUrl =(product,id)=>
 {
-    if(product==undefined || id==undefined)
+    if(product===undefined || id==undefined)
     return '/product/:product/:id';
 
     return `/product/${product}/${id}`;
@@ -29,3 +29,6 @@ export const userOrderUrl = ()=>
 {
     return '/Sulov/Order'
 }
+
+export const productUpdateurl=(id)=>id===undefined?
+   '/admin/product/:id' : `/admin/product/${id}`

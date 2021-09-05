@@ -22,9 +22,11 @@ export const adminInitAction = ()=>dispatch=>
 
 export const getAllCustomersInfo =  ()=>dispatch=>
 {
-   
-    return Sulov.get('/admin/user/').then(res=>
+//    console.log('hamaisi getAllCustomersInfo')
+    return Sulov.get('/user/info').then(res=>
         {
+
+            console.log('customer get',res);
           
            
             return dispatch({
