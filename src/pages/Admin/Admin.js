@@ -162,6 +162,9 @@ export default function Admin() {
       case "orderhistory":
         return <OrderHistory/>
 
+      case "dashboard":
+        return <Dashboard></Dashboard>
+
       default:
         return <ProductUpdate/>;
     }

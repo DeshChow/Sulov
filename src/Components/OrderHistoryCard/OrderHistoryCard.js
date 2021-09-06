@@ -11,8 +11,10 @@ import LocationCityIcon from '@material-ui/icons/LocationCity';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import PublicIcon from '@material-ui/icons/Public';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import './OrderHistory.css';
 import { picUrl } from '../../constants/picUrl';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme=>({
      title:{
@@ -54,6 +56,15 @@ const OrderHistoryCard = (props) => {
 
     const {firstName,lastName,address1,address2,state,city,zip,country} = userAddress;
 
+    const { id,amount_received,payment_method_types,status,charges} = props.data.stripePaymentDetails;
+
+    const { receipt_url } = charges.data[0];
+
+    const { date } = props.data;
+
+
+    // console.log('hashhhh ',charges.data[0])
+
      const pages = [5,10,25];
      const [page,setPage] = useState(0);
      const [rowsPerPage,setRowsPerPage] = useState(pages[0]);
@@ -80,6 +91,18 @@ const OrderHistoryCard = (props) => {
                     return items.filter(x=>x.title.toLowerCase().includes(target.value));
             }
         })
+    }
+
+    const convertDate=(temp)=>
+    {
+
+      const d = new Date(Number(temp));
+
+      console.log(d,temp);
+
+      return `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`
+         
+
     }
 
 
@@ -203,13 +226,49 @@ userContact.map(contact=><UserContactCard contact={contact} key={contact._id}/>)
             </TablePagination>
              
         </Paper>
-        
-           
+        </div>
+
+        <div>
+            <div>
+                 <br></br>
+                 <br></br>
+                <h3>Buyer's Payment</h3>
+                <span className="animate-border-payment"></span>
+                <br></br>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <div>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment ID: {id}
+                    </div>
+                    <div>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment Received:৳{amount_received}
+                    </div>
+                     <div style={{marginRight: '35px'}}>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment Date: {payment_method_types}
+                    </div>
+                </div>
+                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <div>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment Receipt: <a href={receipt_url}>Print the Receipt</a>
+                    </div>
+                    <div style={{marginLeft: '75px'}}>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment Status: <span style={{color: 'green'}}>{status}</span>
+                    </div>
+                    <div>
+                        <CheckBoxOutlineBlankIcon style={{marginBottom: '3px'}}></CheckBoxOutlineBlankIcon>
+                        Payment Date: {convertDate(date)} 
+                    </div>
+                </div>
+            </div>
 
 
         </div>
 
-                </div>
+    </div>
                
 
          </Paper>
