@@ -98,6 +98,8 @@ export default function Login() {
 
   const [state,setState] = useState(0);
 
+  const history = useHistory();
+
   const changeState=(s)=>{
 
     setState(s);
@@ -383,8 +385,11 @@ export default function Login() {
               }
 
 
-              if(result.user.emailVerified) 
+              if(result.user.emailVerified){
                   dispatch(authAction(data))
+                    history.push('/')
+                  
+              }
 
              else swal('Please verify your account first , check your email')
 

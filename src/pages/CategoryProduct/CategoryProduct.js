@@ -59,6 +59,7 @@ import NavbarInside from "../../Components/NavbarInside/NavbarInside";
 import { categoryActions } from "./../../redux/actions/categoryActions";
 import { categoryUrl } from "./../../urls/index";
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +83,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  bottomPush: {
+    position: "fixed",
+    bottom: 0,
+    textAlign: "center",
+    paddingBottom: 10,
+}
 }));
 
 function CategoryProduct() {
@@ -128,6 +135,8 @@ function CategoryProduct() {
   return category === undefined ? (
     <div>Loading</div>
   ) : (
+
+    <>
     <div className={classes.root}>
       <CssBaseline />
 
@@ -198,8 +207,12 @@ function CategoryProduct() {
 
          </div>
          </div> */}
+
       </main>
     </div>
+    </>
+   
+  
   );
 }
 

@@ -14,6 +14,7 @@ import { shoppingCartActions } from '../../redux/actions/shoppingCartActions';
 import StarOutlinedIcon from '@material-ui/icons/StarOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
+import Footer from '../../Components/Footer/Footer';
 
 
 const SingleProduct = () => {
@@ -124,6 +125,7 @@ const SingleProduct = () => {
        itemCountStatus='is remaining';
 
     return (
+        <>
 
         <div>
 
@@ -134,7 +136,7 @@ const SingleProduct = () => {
             {Object.keys(singleProduct).length == 0 ? <div>loadding</div> :
 
 
-
+                <div>
                 <div className="small-container singleProduct" style={{background: 'white'}}>
                     <div className="row">
                         <div className="col-6">
@@ -275,8 +277,14 @@ const SingleProduct = () => {
                     </Container>
 
                     </>
+                </div>
+                <div  style={{marginTop: '120px'}}>
+                    <Footer></Footer>
+                </div>
                 </div>}
         </div>
+
+        </>
 
     );
 };
