@@ -1,43 +1,71 @@
-import React, { useEffect } from 'react';
-
-
-
-
-
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import {
-  Avatar,
-  Box,
-  Card,
-  Checkbox,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TablePagination,
-  TableRow,
-  Typography
-} from '@material-ui/core';
+import { Container, makeStyles, Paper, Table, TableBody, TableCell, TableHead, TablePagination, TableRow, TableSortLabel, Toolbar, TextField } from '@material-ui/core';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
 import { adminInitAction, getAllCustomersInfo } from '../../redux/actions/adminInitActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { picUrl } from '../../constants/picUrl';
 
+ const useStyles = makeStyles(theme=>({
+     title:{
+        textAlign:'center',
+        fontSize: '1rem',
+        paddingTop: '40px',
+        fontWeight: '600',
+        color: 'black',
+        paddingBottom: '10px',
+        position: 'relative',
+        '&::before': {
+            content: '" "',
+            position: 'absolute',
+            left: '0',
+            bottom: '0',
+            width: '5rem',
+            height: '3px',
+            background: '#00ab55',
+            borderRadious: '20px',
+            left: '50% !important',
+            transform: 'translateX(-50%)',
+        },
+    },
+    table: {
+        marginTop: theme.spacing(3),
+        marginLeft: '1.5rem',
+        width: '96%',
+        '& thead th':{
+            fontWeight: '600',
+            color: 'white',
+            backgroundColor: theme.palette.primary.light
+        },
+        '& tbody td':{
+            fontWeight: 300
+        },
+        '& tbody tr:hover':{
+            backgroundColor: '#fffbf2',
+            cursor: 'pointer' 
+        }
+    }
+
+}))
+
 
 const CustomersInfo = () => {
+  const classes = useStyles();
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(0);
-
+ 
    const dispatch = useDispatch();
 
   const adminInitData = useSelector(state => state.adminInitData);
 
   const {customers} = adminInitData;
 
+  const pages = [5,10,25];
+  const [page,setPage] = useState(0);
+  const [rowsPerPage,setRowsPerPage] = useState(pages[0]);
 
+  const [filterFn,setFilterFn] = useState({fn: items=>{ return items; }});
 
 
   useEffect(()=>
@@ -49,145 +77,121 @@ const CustomersInfo = () => {
   },[])
 
 
-
-
-  const handleSelectAll = (event) => {
-    let newSelectedCustomerIds;
-
-    if (event.target.checked) {
-      newSelectedCustomerIds = customers.map((customer) => customer.id);
-    } else {
-      newSelectedCustomerIds = [];
+     const handleChangePage = (event,newPage)=>{
+         setPage(newPage);
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
-  };
-
-  const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedCustomerIds.indexOf(id);
-    let newSelectedCustomerIds = [];
-
-    if (selectedIndex === -1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds, id);
-    } else if (selectedIndex === 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(1));
-    } else if (selectedIndex === selectedCustomerIds.length - 1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, selectedIndex),
-        selectedCustomerIds.slice(selectedIndex + 1)
-      );
+    const handleChangeRowsPerPage = (event)=>{
+        setRowsPerPage(parseInt(event.target.value,10))
+        setPage(0);
+    }
+    
+   
+    const handleSearch = (e)=>{
+        let target = e.target;
+        setFilterFn({
+            fn: items=>{
+                if(target.value==="")
+                    return items;
+                else
+                    return items.filter(x=>x.name.toLowerCase().includes(target.value));
+            }
+        })
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
-  };
+    const convertDate=(temp)=>
+    {
 
-  const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
+      const d = new Date(Number(temp));
 
-  const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-  };
+      console.log(d,temp);
 
-  return customers==undefined ? <div> huiuhiu </div> :  <Card>
-      <PerfectScrollbar>
-        <Box sx={{ minWidth: 1050 }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={selectedCustomerIds.length === customers.length}
-                    color="primary"
-                    indeterminate={
-                      selectedCustomerIds.length > 0
-                      && selectedCustomerIds.length < customers.length
-                    }
-                    onChange={handleSelectAll}
+      return `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`
+         
+
+    }
+
+
+  return customers==undefined ? <div> huiuhiu </div> : <>
+          <div className={classes.title}>
+            <h1>Customer's List</h1>
+            <span></span>
+          </div>
+        <Paper style={{marginTop: '50px'}}>
+            <Toolbar style={{display: 'flex',justifyContent: 'space-between',paddingTop:'30px'}}>
+                 <TextField id="outlined-basic" label="Search by Name" variant="outlined"  InputProps={{
+                            endAdornment: (
+                                <InputAdornment>
+                                    <IconButton>
+                                       <SearchIcon />
+                                    </IconButton>
+                                 </InputAdornment>
+                            )
+                  }}
+                  
+                  onChange={ handleSearch }
                   />
-                </TableCell>
-                <TableCell>
-                  Name
-                </TableCell>
-                <TableCell>
-                  Email
-                </TableCell>
-                <TableCell>
-                  Location
-                </TableCell>
-                <TableCell>
-                  Phone
-                </TableCell>
-                <TableCell>
-                  Registration date
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {customers.map((customer) => (
-                <TableRow
-                  hover
-                  key={customer._id}
-                  selected={selectedCustomerIds.indexOf(customer.id) !== -1}
-                >
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={selectedCustomerIds.indexOf(customer.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, customer.id)}
-                      value="true"
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <Box
-                      sx={{
-                        alignItems: 'center',
-                        display: 'flex'
-                      }}
-                    >
-                      <Avatar
-                        src={ picUrl(customer.pic) }
-                        sx={{ mr: 2 }}
-                      >
-                      asdkoasjdksajd
-                      </Avatar>
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                      >
-                        {customer.name}
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell>
-                    {customer.email}
-                  </TableCell>
-                  <TableCell>
-                    {`${customer.Address}`}
-                  </TableCell>
-                  <TableCell>
-                    {customer.phone}
-                  </TableCell>
-                  <TableCell>
-                  {customer.registration_date}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Box>
-      </PerfectScrollbar>
-      <TablePagination
-        component="div"
-        count={customers.length}
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
-      />
-    </Card>
+            </Toolbar>
+            <Table className = {classes.table}>
+                <TableHead>
+                    <TableRow>
+                        <TableCell key="customer_name">
+                            <TableSortLabel>
+                                Name
+                            </TableSortLabel>
+                        </TableCell>
+                        <TableCell key="phone">
+                            <TableSortLabel>
+                                Phone
+                            </TableSortLabel>
+                        </TableCell>
+                        <TableCell key="email">
+                            <TableSortLabel>
+                                Email
+                            </TableSortLabel>
+                        </TableCell>
+                        <TableCell key="location">
+                            <TableSortLabel>
+                                Location
+                            </TableSortLabel>
+                        </TableCell>
+                        <TableCell key="registration-date">
+                            <TableSortLabel>
+                                Registration Date
+                            </TableSortLabel>
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+    
+                <TableBody>
+                    {
+                        filterFn.fn(customers).slice(page*rowsPerPage,(page+1)*rowsPerPage).map(item=> {
+                           return (
+                            <TableRow>
+                                <TableCell>{item.name}</TableCell>
+                                <TableCell>{item.phone===null ? "Not Available" : item.phone}</TableCell>
+                                <TableCell>{item.email}</TableCell>
+                                <TableCell>#{item.address===null ? "Not Available": item.address}</TableCell>
+                                <TableCell style={{paddingRight: '70px'}}>{convertDate(item.registration_date)}</TableCell>
+                                
+                            </TableRow>
+                        )
+    })}
+
+                </TableBody>
+            </Table>
+            <TablePagination component="div"
+             page={page} 
+             rowsPerPageOptions={pages} 
+             rowsPerPage={rowsPerPage} 
+             count={customers.length}
+             onChangePage={handleChangePage}
+             onChangeRowsPerPage = {handleChangeRowsPerPage}>
+            </TablePagination>
+             
+        </Paper>
+        
+        </>
   
 };
 

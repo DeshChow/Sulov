@@ -8,6 +8,7 @@ import ContactUS from './ContactUS/ContactUS';
 import MainCategory from './MainCategory/MainCategory';
 import NewProduct from './NewProduct/NewProduct';
 import RandomProduct from './RandomProduct/RandomProduct';
+import Footer from './../../Components/Footer/Footer';
 
 
 const Home = () => {
@@ -43,6 +44,7 @@ const Home = () => {
              <RandomProduct/> 
              <NewProduct/> 
              <ContactUS/>
+             <Footer/>
        </React.Fragment>
     
      

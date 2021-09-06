@@ -18,7 +18,7 @@ th{
     text-align: left;
     padding: 5px;
     color: #fff;
-    background-color: #ed5217;
+    background-color: #00ab55;
     font-weight: normal;
 }
 
@@ -39,7 +39,7 @@ td input{
 }
 
 .icon-del{
-    color: #ed5217;
+    color: red;
     margin: 20px; 
     cursor: pointer;
 }
@@ -50,7 +50,7 @@ td input{
 }
 
 .total-price table{
-    border-top: 3px solid #ed5217;
+    border-top: 3px solid #00ab55;
     width: 100%;
     max-width: 400px;
 }

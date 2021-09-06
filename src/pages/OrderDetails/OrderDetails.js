@@ -23,6 +23,8 @@ const TAX_RATE = 0.07;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    background: '#EDEDED',
+    height: '100vh'
   },
   content: {
     flexGrow: 1,
@@ -165,10 +167,10 @@ const OrderDetails = () => {
       <main className={classes.content} >
         <Toolbar />
         <Container maxWidth='xl'>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} >
             <Grid item xs={12} sm={12} md={9} lg={9} >
               <div className="cart-small-container cart-page">
-                <table>
+                <table style={{background: 'white'}}>
                   <tr>
                     <th>Product</th>
                     <th>Quantity</th>
@@ -199,7 +201,7 @@ const OrderDetails = () => {
                 </table>
                 <div className="total-price">
 
-                  <table>
+                  <table style={{background: 'white'}}> 
                     <tr>
                       <td>Subtotal</td>
                       <td>{Math.ceil(subtotal(allProduct.map(pd => pd))).toFixed(2)}</td>
@@ -216,6 +218,7 @@ const OrderDetails = () => {
                 </div>
               </div>
             </Grid>
+           
             <Grid item xs={12} sm={12} md={3} lg={3} >
               {/* <div className="order">
                             <p>Order Summary</p>
@@ -241,10 +244,10 @@ const OrderDetails = () => {
 
                       <tr className="order-row">
                         <td className="order-para-details">
-                          <span style={{ color: "#ff523b" }}>{pd.quantity}</span> items of <span style={{ color: "#ff523b" }}>{pd.title}</span>
+                          <span style={{ color: "red" }}>{pd.quantity}</span> items of <span style={{ color: "red" }}>{pd.title}</span>
                           <br></br>
                           <br></br>
-                          <span style={{ color: "#ff523b" }}>Price:</span> <span>
+                          <span style={{ color: "red" }}>Price: </span> <span>
             {   pd.price} </span>
 
                         </td>
@@ -257,7 +260,7 @@ const OrderDetails = () => {
 
                   <tr style={{ textAlign: 'center', background: 'white' }}>
                     <br></br>
-                    <h4><span style={{ color: "#ff523b" }}>Total Price:</span>{Math.ceil((TAX_RATE * subtotal(allProduct.map(pd => pd))) + subtotal(allProduct.map(pd => pd))).toFixed(2)} </h4>
+                    <h4><span style={{ color: "red" }}>Total Price:</span>{Math.ceil((TAX_RATE * subtotal(allProduct.map(pd => pd))) + subtotal(allProduct.map(pd => pd))).toFixed(2)} </h4>
                     <small style={{ color: 'gray' }}>*all terms and vats included</small>
                   </tr>
                 </table>
@@ -266,10 +269,10 @@ const OrderDetails = () => {
 
 
 
-              <Grid container justify='center' alignItems='center'>
+              <Grid container justify='center' alignItems='center' >
 
                 <Button onClick = {routeChange} variant='contained' style={{
-                  background: '#ED5217', color: 'white'
+                  background: '#00ab55', color: 'white'
                 }}>
 
 
@@ -282,6 +285,8 @@ const OrderDetails = () => {
 
 
             </Grid>
+
+            
 
 
 

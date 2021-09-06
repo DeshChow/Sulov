@@ -87,7 +87,7 @@ const items = [
   },
 ];
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     marginTop: "70px",
 
-    background: "#171C24",
+    background: "#f5f5f5",
 
     minHeight: "100vh",
   },

@@ -99,10 +99,23 @@ input:focus{
 }
 
 .small-image-col{
-    flex-basis: 24%;
+    flex-basis: 30%;
     cursor: pointer;
     border: 1px solid gray;
 }
+
+.imgContent{
+    margin-bottom: 100px;
+}
+
+.smallImage{
+    width: 80%;
+    height: 180px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -119,4 +132,15 @@ input::-webkit-inner-spin-button {
 .addToCartBtn{
     background-color: orangered;
     margin-right: 20px;
+}
+
+.imgContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-img{
+    margin-top: 40px;
+    width: 60%;
 }

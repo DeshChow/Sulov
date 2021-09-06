@@ -6,7 +6,7 @@ import { isLoading } from '../../constants/isLoading'
 import { singleClearProductAction, singleProductAction } from '../../redux/actions/singleProductAction';
 import './SingleProduct.css';
 import SingleProductImages from './SingleProductImages';
-import { Button, Container, Grid } from '@material-ui/core';
+import { Button, Container, Grid, Paper ,Box, CssBaseline, Typography} from '@material-ui/core';
 import ProductCard from '../../Components/AllCard/ProductCard/ProductCard';
 import { singleCategoryAction } from '../../redux/actions/singleCategoryAction';
 import NavbarInside from '../../Components/NavbarInside/NavbarInside';
@@ -53,42 +53,27 @@ const SingleProduct = () => {
         categoryProducts = products.filter(pd=>pd._id!=id);
     }
 
-
-
-
-
     useEffect(() => {
-
         dispatch(singleProductAction(id));
-
         setCurQuantity(1);
-
         return ()=> {
 
             dispatch(singleClearProductAction());
         }
-
     }, [id])
 
-  
 
     useEffect(()=>
     {
         dispatch(singleCategoryAction(category_id));
         setCurQuantity(1);
-          
 
     },[category_id])
 
     useEffect(() => {
-
         if (pic)
             setCurrentImg(pic[0]);
-            
             setCurQuantity(1);
-
-
-
     }, [title]);
 
     // <img src={picUrl(pic)}></img> 
@@ -109,7 +94,7 @@ const SingleProduct = () => {
             quantity : curQuantity,
             price : totalPrice,
 
-}));
+        }));
     }
 
     const Counter = (now) => {
@@ -150,10 +135,14 @@ const SingleProduct = () => {
 
 
 
-                <div className="small-container singleProduct">
+                <div className="small-container singleProduct" style={{background: 'white'}}>
                     <div className="row">
                         <div className="col-6">
-                            <img src={picUrl(currentImg)} width="100%"></img>
+                            <div className="imgContent">
+                            <img src={picUrl(currentImg)} className="main-img"></img>
+                            </div>
+
+                            
 
                             <div>
                                 <div className="small-image-row">
@@ -162,8 +151,9 @@ const SingleProduct = () => {
 
                                         pic.map((picImg, idx) =>
                                             <div className="small-image-col" key={idx}>
-
-                                                <img onClick={() => handleClick(picImg)} src={picUrl(picImg)} width="100%"></img>
+                                                <div>
+                                                <img onClick={() => handleClick(picImg)} src={picUrl(picImg)} className="smallImage"></img>
+                                                </div>
                                             </div>
                                         )
 
@@ -256,23 +246,35 @@ const SingleProduct = () => {
                         </div>
                     </div>
                     <br></br>
-                    <h3 style={{marginLeft: '5px'}}>More items to explore</h3>
-                    <hr></hr>
-                    <Container maxWidth='xl'>
-                        <Grid container spacing={2} justify='center' wrap='wrap'>
+                  
+                   <>
+                   <CssBaseline/>
+                    <Container   Component={Box} p={4} maxWidth='xl' style={{background: '#EDEDED'}}
+                    style={{marginTop : "20px"}}>
 
+                    
+                        <Paper Component={Box} p={4} style={{background: '#EDEDED'}}>
+                           <h3 style={{textAlign: 'center',paddingTop: '20px',marginBottom: '20px'}}>
+                            <span style={{  borderBottom: '1px solid #000'}}>More items to explore</span></h3>
+                       
+                            <Grid container spacing={2} justify='center' wrap='wrap'>
                             {
-                                isLoading(products) ? categoryProducts.map(ct =>
+                                isLoading(products) ?categoryProducts.map(ct =>
                                     <Grid item >
                                         <ProductCard key={ct._id} data={ct}></ProductCard>
                                     </Grid>
                                 
                                 )
+                                
                                     : <Grid>Loadding</Grid>
 
                             }
                         </Grid>
+
+                         </Paper>
                     </Container>
+
+                    </>
                 </div>}
         </div>
 
