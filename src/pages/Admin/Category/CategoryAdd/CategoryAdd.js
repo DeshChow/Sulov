@@ -1,11 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
+import { CssBaseline, Container, Paper, Box , Button,makeStyles, Grid, Typography } from "@material-ui/core";
+
+import SaveIcon from '@material-ui/icons/Save';
+
 
 const CategoryAdd = () => {
 
     const [file,setFile] = useState(null);
 
-    const [title,setTitle]=useState('');
+    // const [title,setTitle]=useState('');
+
+    const [data,setData] = useState({})
 
     const handleFileChange=(e)=>
     {
@@ -23,7 +29,11 @@ const CategoryAdd = () => {
 
         formData.append('file', file);
 
-        formData.append('title',title);
+        formData.append('title',data.title);
+
+        formData.append('alternativeTitle',data.alternativeTitle);
+
+        // formData.append('alternativeName',);
 
 
 
@@ -45,39 +55,100 @@ const CategoryAdd = () => {
 
     const handleBlur = e => {
 
-      const newTitle = e.target.value;
+      const newData = {...data};
 
-      setTitle(newTitle);
+      newData[e.target.name] = e.target.value;
+
+      setData(newData);
 
     }
     
    return (
         <div>
 
-             <form onSubmit={handleSubmit}>
+<CssBaseline />
+        <Container component={Box} p={4}>
+         
+    
 
-       <input onChange={handleFileChange} type='file'></input>
+          <Paper component={Box} p={5}>
 
-       <br/>
 
+              <Typography align='center' style={{margin : "15px 0px",fontWeight : "bold",fontSize : "25px"}}>
+
+                  Category Add
+              </Typography>
+
+          <form onSubmit={handleSubmit}>
+
+<input onChange={handleFileChange} type='file' required></input>
+
+<br/>
+<br/>
+
+  
+
+
+                 <label htmlFor="exampleInputName1"><b>Name</b></label>
+                 
+                  <input onBlur={handleBlur} type="text" className="form-control" name='title' id="inputTitle" placeholder="title" required />
          
 
-      
-                        <label htmlFor="exampleInputName1"><b>Name</b></label>
-                        
-                         <input onBlur={handleBlur} type="text" className="form-control" name='title' id="inputTitle" placeholder="title" required />
-                
-            <br/>
+                 
+<br/>
+
+  
+
+
+                 <label htmlFor="exampleInputName1"><b>Alternative Title</b></label>
+                 
+                  <input onBlur={handleBlur} type="text" className="form-control" name='alternativeTitle' 
+                  id="alternativeTitle" placeholder="alternative title" required />
+         
+
+     <br/>
 
 
 
 
-            <input type="submit" value="Submit"/>
+     {/* <input type="submit" value="Submit"/> */}
+
+     <Grid container justify='center' style={{textAlign : "center"}}>
+
+
+         <Grid item xs={12} >
+
+         <Button
+        variant="contained"
+        color="primary"
+        size="medium"
+        type="submit"
+        // className={classes.button}
+        // onClick={handleSubmit}
+        startIcon={<SaveIcon />}
+      >
+        Submit
+      </Button>
 
 
 
-            </form>
+         </Grid>
+     </Grid>
 
+                  
+
+
+
+     </form>
+
+
+
+
+          </Paper>
+
+          </Container>
+
+           
            
 
          
