@@ -112,7 +112,7 @@ userContact.map(contact=><UserContactCard contact={contact} key={contact._id}/>)
           </div>
         <Paper style={{marginTop: '50px'}}>
             <Toolbar style={{display: 'flex',justifyContent: 'space-between',paddingTop:'30px'}}>
-                 <TextField id="outlined-basic" label="Search by Phone" variant="outlined"  InputProps={{
+                 <TextField id="outlined-basic" label="Search by Name" variant="outlined"  InputProps={{
                             endAdornment: (
                                 <InputAdornment>
                                     <IconButton>
@@ -148,7 +148,7 @@ userContact.map(contact=><UserContactCard contact={contact} key={contact._id}/>)
                                 Phone
                             </TableSortLabel>
                         </TableCell>
-                        <TableCell key="message" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <TableCell key="message">
                             <TableSortLabel>
                                 Message
                             </TableSortLabel>
@@ -165,7 +165,7 @@ userContact.map(contact=><UserContactCard contact={contact} key={contact._id}/>)
                                 <TableCell>{item.last_name}</TableCell>
                                 <TableCell>{item.email}</TableCell>
                                 <TableCell>{item.mobile}</TableCell>
-                                <TableCell style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} >{item.text}</TableCell>
+                                <TableCell style={{marginRight: '30px'}} >{item.text}</TableCell>
                                 
                             </TableRow>
                         )
