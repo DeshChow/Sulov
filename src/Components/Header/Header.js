@@ -9,6 +9,7 @@ import blob from '../../images/blob-haikei.svg';
 
 import './Header.css';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export const Header = () => {
@@ -37,7 +38,7 @@ export const Header = () => {
                         <li><a className="navLink" href="#">Products</a></li>
                         <li><a className="navLink" href="#">Services</a></li>
                         <li> <i className="fas fa-shopping-cart cart"> </i></li>
-                        <li onClick = {()=>routeChange('/login')} style={{color : "white"}}> SIGN IN</li>
+                        <li><button onClick = {()=>routeChange('/login')} style={{color : "black"}}>SIGN IN</button></li>
                     </ul>
                 </nav>
             

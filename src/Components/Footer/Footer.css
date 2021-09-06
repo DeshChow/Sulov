@@ -13,7 +13,7 @@
     display: block;
     width: 115px;
     height: 3px;
-    background: #ed664c;
+    background: #00AB55;
   }
   
   .animate-border:after {
@@ -101,7 +101,7 @@
   
   .dk-footer {
     padding: 75px 0 0;
-    background: linear-gradient(57deg, #00C6A7 , #1E4D92 ); 
+    background: #1A2138;
     position: relative;
     z-index: 2;
   }
@@ -124,8 +124,8 @@
   }
   .dk-footer-box-info {
     position: absolute;
-    top: -122px;
-     background: linear-gradient(57deg, #00c6a7 , #1E4D92 ); 
+    top: -180px;
+    background:  #202020; 
     padding: 2.5rem;
     z-index: 2;
   }
@@ -175,6 +175,7 @@
   
   .footer-info-text {
     margin: 26px 0 32px;
+    text-align: justify;
   }
   
   .footer-left-widget {
@@ -295,7 +296,7 @@
     font-size: 2.25rem;
     top: -15px;
     position: relative;
-    color: #ed664c;
+    color: #00AB55;
   }
   
   .contact-info {
@@ -347,7 +348,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #2e2e2e;
+    background: #00AB55;
     border-color: #2e2e2e;
     display: none;
     z-index: 999;

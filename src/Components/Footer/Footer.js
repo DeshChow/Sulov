@@ -6,6 +6,13 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import images01 from '../../../images/icon/06022019-12-removebg-preview.png'
 import './Footer.css';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import HomeIcon from '@material-ui/icons/Home';
+import CallIcon from '@material-ui/icons/Call';
+import VerticalAlignTopIcon from '@material-ui/icons/VerticalAlignTop';
 
 const Footer = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -35,39 +42,33 @@ const Footer = () => {
                             <Link to="/" onClick={scrollHandler} className="footer-logo">
                                 <div className="d-flex justify-content-center">
                                     {/* <img src={images01} alt="footer_logo" height="160" /> */}
-                                    <h1>Sulov</h1>
+                                    <h1 style={{color: '#00AB55'}}>Sulov</h1>
                                 </div>
-                                <h3 className="text-center text-white mb-0">Inhale Care</h3>
                             </Link>
                             <p className="footer-info-text">
-                            Put good health at the heart of your business and not just at the bottom line.Better Outcomes. Better Care. A Healthier You.
-                                </p>
+                            We believe time is valuable to our fellow residents, and that they should not have to waste hours in traffic,brave bad weather and wait in line just to buy basic necessities like eggs! This is why Sulov delivers everything you need right at your door-step and at no additional cost.Stay tuned always.Keep Buying !!!!
+                            </p>
                             <div className="footer-social-link">
                                 <h3>Follow us</h3>
                                 <ul>
                                     <li>
                                         <Link to="/" onClick={scrollHandler} className="facebook">
-                                            {/* <FontAwesomeIcon icon={faFacebookF} /> */}
+                                            <FacebookIcon></FacebookIcon>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/" onClick={scrollHandler} className="twitter">
-                                            {/* <FontAwesomeIcon icon={faTwitter} /> */}
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" onClick={scrollHandler} className="google-plus">
-                                            {/* <FontAwesomeIcon icon={faGooglePlusG} /> */}
+                                            <TwitterIcon></TwitterIcon>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/" onClick={scrollHandler} className="linkedin">
-                                            {/* <FontAwesomeIcon icon={faLinkedinIn} /> */}
+                                            <LinkedInIcon></LinkedInIcon>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link to="/" onClick={scrollHandler} className="instagram">
-                                            {/* <FontAwesomeIcon icon={faInstagram} /> */}
+                                            <InstagramIcon></InstagramIcon>
                                         </Link>
                                     </li>
                                 </ul>
@@ -79,21 +80,21 @@ const Footer = () => {
                             <Col md={6}>
                                 <div className="contact-us">
                                     <div className="contact-icon">
-                                        {/* <FontAwesomeIcon icon={faMapMarkedAlt} /> */}
+                                        <HomeIcon></HomeIcon>
                                     </div>
                                     <div className="contact-info">
                                         <h3>Sylhet, Bangladesh</h3>
-                                        <p>Zindabazar,loc-1214</p>
+                                        <p>6/A,Al Hamra,Zindabazar</p>
                                     </div>
                                 </div>
                             </Col>
                             <Col md={6}>
                                 <div className="contact-us contact-us-last">
                                     <div className="contact-icon">
-                                        {/* <FontAwesomeIcon icon={faPhoneVolume} /> */}
+                                       <CallIcon></CallIcon>
                                     </div>
                                     <div className="contact-info">
-                                        <h3>+880-1910-820976</h3>
+                                        <h3>+880-1313918401</h3>
                                         <p>Give us a call</p>
                                     </div>
                                 </div>
@@ -190,7 +191,7 @@ const Footer = () => {
             </div>
             <div className="back-to-top">
                 <Button variant="dark" onClick={scrollHandler} title="Back to Top" className={scrolled ? "d-block" : "d-none"}>
-                    {/* <FontAwesomeIcon icon={faAngleUp} /> */}
+                    <VerticalAlignTopIcon></VerticalAlignTopIcon>
                 </Button>
             </div>
         </footer>
