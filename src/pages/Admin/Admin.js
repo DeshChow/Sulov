@@ -37,6 +37,11 @@ import {
 import ProductsInfo from "./ProductsInfo";
 import CustomersInfo from "./CustomersInfo";
 import Contact from "./Contact/Contact";
+import ProductAdd from "./Product/ProductAdd/ProductAdd";
+import CategoryInfo from "./CategoryInfo/CategoryInfo";
+import CategoryAdd from "./Category/CategoryAdd/CategoryAdd";
+import ProductUpdate from "./Product/ProductUpdate/ProductUpdate";
+import OrderHistory from './OrderHistory/OrderHistory';
 
 const user = {
   avatar: "/static/images/avatars/avatar_6.png",
@@ -145,8 +150,20 @@ export default function Admin() {
       case "contact":
         return <Contact/>
 
+      case "addProduct":
+        return <ProductAdd/>
+
+      case "categories":
+        return <CategoryInfo/>
+
+      case "addCategory":
+        return <CategoryAdd/>
+
+      case "orderhistory":
+        return <OrderHistory/>
+
       default:
-        return <Dashboard />;
+        return <ProductUpdate/>;
     }
   };
 
@@ -189,11 +206,21 @@ export default function Admin() {
 
               <div
                 style={{ marginTop: "20px" }}
+                onClick={() => routeChange("categories")}
+              >
+                <ShoppingBagIcon />
+                Category
+              </div>
+
+              <div
+                style={{ marginTop: "20px" }}
                 onClick={() => routeChange("products")}
               >
                 <ShoppingBagIcon />
                 Products
               </div>
+
+
 
               <div
                 style={{ marginTop: "20px" }}
@@ -201,6 +228,14 @@ export default function Admin() {
               >
                 <ShoppingBagIcon />
                 User Contact
+              </div>
+
+              <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange("orderhistory")}
+              >
+                <ShoppingBagIcon />
+                Order History
               </div>
             </List>
           </Box>

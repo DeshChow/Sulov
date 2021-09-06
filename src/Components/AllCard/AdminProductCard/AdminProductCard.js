@@ -41,8 +41,8 @@ const AdminProductCard = (props) => {
 
     const routeChange=()=>
     {
-        history.push(
-            productUpdateurl(_id))
+        history.push(`/sulov/admin/${_id}`)
+         
         // console.log('amaisiiaiaia', productUpdateurl(_id))
     }
 

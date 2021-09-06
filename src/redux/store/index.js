@@ -10,6 +10,7 @@ import singleCategoryReducers from "../reducers/singleCategoryReducers";
 import singleProductReducers from "../reducers/singleProductReducers";
 import allProductReducer from '../reducers/allProductReducer'
 import userContactReducer from './../reducers/userContactReducer';
+import orderHistoryReducer from './../reducers/orderHistoryReducer';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -37,7 +38,9 @@ const rootReducers=combineReducers({
 
      allProduct : allProductReducer,
 
-     userContact:  userContactReducer
+     userContact:  userContactReducer,
+
+     orderHistory : orderHistoryReducer
 
 
 

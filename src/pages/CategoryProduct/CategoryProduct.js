@@ -143,77 +143,24 @@ function CategoryProduct() {
         <div className={classes.drawerContainer}>
           <List>
 
-            <ListItem
-              button
-              onClick={() => routeChange(category[0].title, category[0]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
+            {
+              category.map(data=><ListItem
+                button
+                onClick={() => routeChange(data.title,data._id)}
+              >
+                <ListItemIcon>
+                
+                  <InboxIcon />
+                </ListItemIcon>
+  
+                <ListItemText primary={data.alternativeTitle} />
+              </ListItem>
+  )
 
-              <ListItemText primary={category[0].title} />
-            </ListItem>
 
-            <ListItem
-              button
-              onClick={() => routeChange(category[1].title, category[1]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
+            }
 
-              <ListItemText primary={category[1].title} />
-            </ListItem>
-
-            <ListItem
-              button
-              onClick={() => routeChange(category[2].title, category[2]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
-
-              <ListItemText primary={category[2].title} />
-            </ListItem>
-
-            <ListItem
-              button
-              onClick={() => routeChange(category[3].title, category[3]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
-
-              <ListItemText primary={category[3].title} />
-            </ListItem>
-
-            <ListItem
-              button
-              onClick={() => routeChange(category[4].title, category[4]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
-
-              <ListItemText primary={category[4].title} />
-            </ListItem>
-
-            <ListItem
-              button
-              onClick={() => routeChange(category[5].title, category[5]._id)}
-            >
-              <ListItemIcon>
-              
-                <InboxIcon />
-              </ListItemIcon>
-
-              <ListItemText primary={category[5].title} />
-            </ListItem>
+          
 
 
           </List>

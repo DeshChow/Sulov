@@ -80,6 +80,10 @@ const CategoryAdd = () => {
               </Typography>
 
           <form onSubmit={handleSubmit}>
+              <br/>
+
+          <label htmlFor="exampleInputName1"><b>Image</b></label>
+          <br/>
 
 <input onChange={handleFileChange} type='file' required></input>
 

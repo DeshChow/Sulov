@@ -23,3 +23,5 @@ export const  AUTH_INFO_LOAD = "AUTH_INFO_LOAD";
 export const ALL_PRODUCT_LOAD = "ALL_PRODUCT_LOAD";
 
 export const USER_CONTACT = "USER_CONTACT"
+
+export const ORDER_HISTORY_LOAD = "ORDER_HISTORY_LOAD"

@@ -18,7 +18,9 @@ const ProductsInfo = () => {
   console.log(allProduct);
 
   const handleClick = () => {
-    history.push("/AddProduct");
+  
+      history.push(`/sulov/admin/addProduct`);
+  
   };
 
   useEffect(() => {
