@@ -77,6 +77,8 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
 
   if(!error) {
       try {
+
+        console.log('hamaisi ');
           const {id} = paymentMethod
           const response = await axios.post("http://localhost:5000/order/", {
               amount: TotalProductPrice(orderProduct,0),
@@ -96,6 +98,8 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
               }
 
           })
+
+          console.log(response)
 
           if(response.data.success) {
               console.log("Successful payment")

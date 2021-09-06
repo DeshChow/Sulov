@@ -19,6 +19,7 @@ import { categoryUrl, checkOutUrl, productUrl, userOrderUrl } from "./urls";
 import Login from "./pages/Login/Login";
 import ProductUpdate from './pages/Admin/Product/ProductUpdate/ProductUpdate';
 import { productUpdate, productUpdateurl } from './urls/index';
+import Profile from "./pages/Profile/Profile";
 
 export const UserContext = createContext();
 
@@ -60,6 +61,11 @@ function App() {
 
         <Route path="/sulov/admin/:id">
           <Admin />
+        </Route>
+
+        <Route path="/profile">
+         
+         <Profile/>
         </Route>
 
         <Route path={userOrderUrl()}>

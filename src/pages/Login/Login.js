@@ -28,7 +28,7 @@ import firebaseConfig from './firebase.confiq'
 
 
 import { useHistory, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {AiFillTag} from "react-icons/ai";
 import {FaFacebook} from "react-icons/fa";
@@ -93,6 +93,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
 
+  const auth = useSelector(state=>state.auth)
+
+  const {isSignedIn} = auth===undefined ? {} : auth;
+
 
   const classes = useStyles();
 
@@ -141,6 +145,13 @@ export default function Login() {
 
        
     }
+
+    React.useEffect(()=>
+    {
+      if(isSignedIn===true)
+        return history.push('/');
+
+    },[isSignedIn])
 
   const handleGoogleSignInUp = async () => {
 
@@ -387,7 +398,7 @@ export default function Login() {
 
               if(result.user.emailVerified){
                   dispatch(authAction(data))
-                    history.push('/')
+                    // history.push('/')
                   
               }
 

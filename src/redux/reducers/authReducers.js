@@ -1,8 +1,11 @@
 import React from 'react';
  
 import { AUTH_INFO_LOAD} from '../../constants/types';
+import { SIGN_OUT } from './../../constants/types';
  
-const initialState = {};
+const initialState = {
+    isSignedIn : false
+};
  
  
 const authReducers = (state=initialState,action) => {
@@ -12,7 +15,10 @@ const authReducers = (state=initialState,action) => {
  
     switch(action.type)
     {
-        case AUTH_INFO_LOAD : return {...action.payload};
+        case AUTH_INFO_LOAD : return {...action.payload,isSignedIn : true};
+
+        case SIGN_OUT: 
+          return {isSignedIn : false}
  
         default : return state;
     }

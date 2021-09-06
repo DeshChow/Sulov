@@ -10,15 +10,30 @@ import blob from '../../images/blob-haikei.svg';
 import './Header.css';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { SIGN_OUT } from './../../constants/types';
+import { signOutAction } from '../../redux/actions/authAction';
 
 
 export const Header = () => {
 
     const history = useHistory();
 
+    const dispatch = useDispatch();
+
+    const auth = useSelector(state=>state.auth);
+
+    const {isSignedIn} = auth===undefined ? {} : auth;
+
+    const {name} = auth===undefined?{} : auth
+
+    console.log('nameeeee ',name);
+
     const routeChange = (str) =>
     {
-        history.push(str)
+        if(str===SIGN_OUT)
+          return dispatch(signOutAction())
+        else history.push(str)
     }
     return (
        <div className='container-fluid full-preview'>
@@ -37,8 +52,17 @@ export const Header = () => {
                         <li><a className="navLink" href="#">Home</a></li>
                         <li><a className="navLink" href="#">Products</a></li>
                         <li><a className="navLink" href="#">Services</a></li>
+
+                        <li><a className="navLink" href="/profile">{name}</a></li>
                         <li> <i className="fas fa-shopping-cart cart"> </i></li>
-                        <li><button onClick = {()=>routeChange('/login')} style={{color : "black"}}>SIGN IN</button></li>
+                        <li>
+                          {isSignedIn?   <button onClick = {()=>routeChange(SIGN_OUT)} style={{color : "black"}}>SIGN Out</button> :
+
+
+                          
+        <button onClick = {()=>routeChange('/login')} style={{color : "black"}}>SIGN IN</button>}
+        </li>
+
                     </ul>
                 </nav>
             

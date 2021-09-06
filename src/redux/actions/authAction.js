@@ -2,6 +2,7 @@ import React from "react";
 import { AUTH_INFO_LOAD } from "../../constants/types";
 import Sulov from "../../Sulov";
 import { sulovBaseUrl } from "../../sulovBaseUrl";
+import { SIGN_OUT } from './../../constants/types';
 const axios = require("axios");
 
 export const authAction = (data) => async (dispatch) => {
@@ -17,7 +18,7 @@ export const authAction = (data) => async (dispatch) => {
 
     return dispatch({
       type: AUTH_INFO_LOAD,
-      payload: { ...res.data.data },
+      payload: { ...res.data.data ,isSignedIn : true},
     });
 
 
@@ -28,3 +29,12 @@ export const authAction = (data) => async (dispatch) => {
    alert(err)
   }
 };
+
+
+export const signOutAction = ()=>
+{
+     return {
+
+      type : SIGN_OUT
+     }
+}

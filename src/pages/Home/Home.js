@@ -9,6 +9,7 @@ import MainCategory from './MainCategory/MainCategory';
 import NewProduct from './NewProduct/NewProduct';
 import RandomProduct from './RandomProduct/RandomProduct';
 import Footer from './../../Components/Footer/Footer';
+import { authAction } from './../../redux/actions/authAction';
 
 
 const Home = () => {
@@ -16,6 +17,9 @@ const Home = () => {
     const dispatch = useDispatch();
 
    // const category = useSelector(st => st.category);
+
+   const auth = useSelector(state=>state.auth);
+
     
 
 
@@ -23,6 +27,12 @@ const Home = () => {
 
     useEffect(()=>
     {
+        if(auth!==undefined && auth.email!==undefined)
+        dispatch(authAction({
+            email : auth.email
+        }))
+
+
         dispatch(categoryActions());
 
 
