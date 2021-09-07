@@ -17,8 +17,11 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import React from 'react';
 import { picUrl } from '../../../constants/picUrl';
+import { useHistory } from 'react-router';
 
 const LatestProducts = ({latestProduct}) => {
+
+  const history = useHistory();
 
   
 
@@ -69,6 +72,7 @@ const LatestProducts = ({latestProduct}) => {
         endIcon={<ArrowRightIcon />}
         size="small"
         variant="text"
+        onClick={()=>history.push('/sulov/admin/products')}
       >
         View all
       </Button>

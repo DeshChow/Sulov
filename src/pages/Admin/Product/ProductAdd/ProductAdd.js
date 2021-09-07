@@ -12,6 +12,7 @@ import Box from "@material-ui/core/Box";
 import SaveIcon from "@material-ui/icons/Save";
 
 import LoaderComponent from "../../../../Components/LoaderComponent/LoaderComponent";
+import { useHistory } from 'react-router';
 
 const axios = require("axios");
 const ProductAdd = () => {
@@ -23,6 +24,8 @@ const ProductAdd = () => {
   const initData = useSelector((state) => state.category);
 
   const { category } = initData;
+
+  const history = useHistory();
 
   console.log(initData);
 
@@ -70,13 +73,15 @@ const ProductAdd = () => {
     formData.append("categoryTitle", info.categoryTitle);
     formData.append("categoryId", info.categoryId);
 
+  
+
     fetch("http://localhost:5000/product/add", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.insertCount) alert("successfully");
+        if (data.insertCount) history.push('/sulov/admin/products');
         console.log(data);
       })
       .catch((error) => {
