@@ -18,7 +18,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { picUrl } from '../../constants/picUrl';
 import { clearShoppingCart, deleteShoppingActions } from '../../redux/actions/shoppingCartActions';
 import { useHistory } from 'react-router';
-import { checkOutUrl } from '../../urls';
+import { checkOutUrl, loginUrl } from '../../urls';
+import { signOutAction } from '../../redux/actions/authAction';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
-      background: '#007185'
+      background: '#1A2138'
     },
     list: {
         width: 250,
@@ -57,9 +58,30 @@ const useStyles = makeStyles((theme) => ({
 
 const NavbarInside = () => {
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const classes = useStyles();
+
+
+       const history = useHistory();
+
+  
+    const auth = useSelector(state=>state.auth);
+
+    const {isSignedIn} = auth===undefined ? {} : auth;
+
+    const {name} = auth===undefined?{} : auth
+
+    console.log('nameeeee ',name);
+
+    const logOut = () =>
+    {
+      
+         dispatch(signOutAction())
+        // else history.push(str)
+    }
+
+
 
     const anchor = 'right';
 
@@ -197,33 +219,49 @@ const NavbarInside = () => {
     
      <AppBar  position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap>
-            Clipped drawer
+       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+        <div>
+          <Typography variant="h6" nowrap>
+             <a className="logo-container">
+                  <i className="fas fa-shopping-cart fa-lg"> </i>
+                  <h4 className="logo">Sulov</h4>
+             </a>
           </Typography>
-
-        
-
-        
-
-
-    <div>
-     
-          <Button onClick={toggleDrawer('right', true)}> 
+        </div>
           
-          
-           <IconButton aria-label="cart">
-      <StyledBadge badgeContent={productCount} color="secondary">
-        <ShoppingCartIcon color='secondary' />
-      </StyledBadge>
-    </IconButton>
-    
-    
-    </Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
-          </Drawer>
-      
-    </div>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div>
+          {name}
+
+          </div>
+
+           <div>
+              <Button onClick={toggleDrawer('right', true)}> 
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={productCount} color="secondary">
+                    <ShoppingCartIcon color='secondary' />
+                       </StyledBadge>
+                </IconButton>
+              </Button>
+              <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                {list(anchor)}
+              </Drawer>
+          </div>
+
+          <div>
+          { isSignedIn?  <button onClick={logOut}>
+
+              Logout
+            </button> : <button onClick={()=>history.push('/login')}>
+
+              sign in
+            </button> 
+}
+            
+
+          </div>
+        </div>
+      </div> 
 
 
         </Toolbar>

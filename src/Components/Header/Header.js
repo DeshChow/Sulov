@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-scroll'
 import Navbar from '../Navbar/Navbar'
 import pic4 from '../../images/bg.png';
 import pic5 from '../../images/3255317-removebg-preview.png';
@@ -48,19 +49,19 @@ export const Header = () => {
                 <nav className='navItem '>
                     <ul className="navLinks">
                         <li><a className="navLink" href="#">Home</a></li>
-                        <li><a className="navLink" href="#">Home</a></li>
-                        <li><a className="navLink" href="#">Home</a></li>
-                        <li><a className="navLink" href="#">Products</a></li>
-                        <li><a className="navLink" href="#">Services</a></li>
-
-                        <li><a className="navLink" href="/profile">{name}</a></li>
-                        <li> <i className="fas fa-shopping-cart cart"> </i></li>
+                        <li className="navLink"><Link  to="category" spy={true} smooth={true}>Categories</Link></li>
+                        <li className="navLink"><Link to="randomProduct" spy={true} smooth={true}>Best Deal</Link></li>
+                        <li className="navLink"><Link  to="newproduct" >New Product</Link></li>
+                        <li className="navLink"><Link  to="contact" spy={true} smooth={true}>Contact Us</Link></li>
+                       {isSignedIn ? <li><a className="navLinksp" href="/profile">{name}</a></li> : <></>
+}
+                        {/* <li> <i className="fas fa-shopping-cart cart"> </i></li> */}
                         <li>
-                          {isSignedIn?   <button onClick = {()=>routeChange(SIGN_OUT)} style={{color : "black"}}>SIGN Out</button> :
+                          {isSignedIn?   <button onClick = {()=>routeChange(SIGN_OUT)} style={{color : "black"}} className="sign-btn"><span style={{color: 'white'}}>Logout</span></button> :
 
 
                           
-        <button onClick = {()=>routeChange('/login')} style={{color : "black"}}>SIGN IN</button>}
+        <button onClick = {()=>routeChange('/login')}  className="sign-btn"><span style={{color: 'white'}}>Sign In</span></button>}
         </li>
 
                     </ul>

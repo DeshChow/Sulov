@@ -84,6 +84,7 @@ const ContactUS = () => {
 
 
     return (
+        <div id="contact">
         <div className="main-content">
             <SulovAlert alertOpen={alertOpen} setAlertOpen={setAlertOpen}/>
             <div>
@@ -139,6 +140,7 @@ const ContactUS = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

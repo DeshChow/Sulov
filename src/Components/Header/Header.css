@@ -25,6 +25,7 @@
 .navLinks{
   justify-content: space-around;
   list-style: none;
+  text-decoration: none;;
 }
 
 /* a:link{
@@ -40,12 +41,27 @@ a:hover{
 .navLink{
   color: white;
   font-size: 18px;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.navLinksp{
+  color: #00ab55;
+  font-size: 18px;
+  text-decoration: none !important;
 }
 
 .navLink:hover {
   border-bottom: 4px solid #00ab55;
   transition: all 0.2s ease-out;
+  color: white;
+  text-decoration: none;
+}
+
+.navLinksp:hover{
+  color: white;
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 4px solid #00ab55;
 }
 
 .fa-shopping-cart{
@@ -276,6 +292,13 @@ input[type="search"]{
     width: 3ch;
   }
 } */
+
+.sign-btn{
+  background-color: #00ab55;
+  border: none;
+  border-radius: 10px;
+
+}
 
 
 @media screen and (max-width: 960px){
