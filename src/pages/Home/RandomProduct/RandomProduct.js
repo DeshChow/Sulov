@@ -117,7 +117,7 @@ const RandomProduct = () => {
             ))}>
               <img
                 style={{ height: "70%", width: "70%", marginTop: "30px" }}
-                src={picUrl(ran.pic)}
+                src={picUrl(ran.pic[0])}
               alt=''></img>
             </Card>
           ))

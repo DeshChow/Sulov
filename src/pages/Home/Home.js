@@ -60,7 +60,7 @@ const Home = () => {
              <RandomProduct/> 
              <NewProduct/> 
              <ContactUS/>
-             <div style={{background: '#222B45', height: '500px', width: '100%'}}>sduifyhuisdh</div>
+             {/* <div style={{background: '#222B45', height: '500px', width: '100%'}}>sduifyhuisdh</div> */}
              <Footer/>
        </React.Fragment>
     

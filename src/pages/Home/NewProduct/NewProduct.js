@@ -77,32 +77,32 @@ const NewProduct = () => {
             textAlign : "center"}} >
                                     <Nav.Item className="pricing-content-1" onClick = {()=>handleProductChange(0)}>
                                         <Nav.Link eventKey="1">
-                                            <img alt="" src={picUrl(newlyAddedProduct[0].pic)} width="35" height="35" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[0].pic[0])} width="35" height="35" />
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="pricing-content-2" onClick = {()=>handleProductChange(1)}>
                                         <Nav.Link eventKey="2">
-                                            <img alt="" src={picUrl(newlyAddedProduct[1].pic)} width="40" height="40" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[1].pic[0])} width="40" height="40" />
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="pricing-content-3" onClick = {()=>handleProductChange(2)}>
                                         <Nav.Link eventKey="3">
-                                            <img alt="" src={picUrl(newlyAddedProduct[2].pic)} width="35" height="35" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[2].pic[0])} width="35" height="35" />
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="pricing-content-4" onClick = {()=>handleProductChange(3)}>
                                         <Nav.Link eventKey="4">
-                                            <img alt="" src={picUrl(newlyAddedProduct[3].pic)} width="40" height="40" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[3].pic[0])} width="40" height="40" />
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="pricing-content-5" onClick = {()=>handleProductChange(4)}>
                                         <Nav.Link eventKey="5">
-                                            <img alt="" src={picUrl(newlyAddedProduct[4].pic)} width="36" height="36" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[4].pic[0])} width="36" height="36" />
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item className="pricing-content-6" >
                                         <Nav.Link eventKey="6"  onClick = {()=>handleProductChange(5)}>
-                                            <img alt="" src={picUrl(newlyAddedProduct[5].pic)} width="40" height="40" />
+                                            <img alt="" src={picUrl(newlyAddedProduct[5].pic[0])} width="40" height="40" />
                                         </Nav.Link>
                                     </Nav.Item>
                                 </Nav>
