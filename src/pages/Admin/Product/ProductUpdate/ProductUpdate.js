@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { singleProductAction } from './../../../../redux/actions/singleProductAction';
+import { singleClearProductAction, singleProductAction } from './../../../../redux/actions/singleProductAction';
 import  TextField  from '@material-ui/core/TextField';
 import { CssBaseline, Container, Paper, Box , Button,makeStyles, Grid, Typography } from "@material-ui/core";
 import SaveIcon from '@material-ui/icons/Save';
@@ -11,6 +11,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import axios from './../../../../Sulov';
+import LoaderComponent from '../../../../Components/LoaderComponent/LoaderComponent';
+import { SMALL } from '../../../../constants/types';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -93,7 +95,7 @@ const ProductUpdate = () => {
 
         return()=>
         {
-        //  dispatch(clearSingleP)
+         dispatch(singleClearProductAction());
         }
 
     },[id])
@@ -113,7 +115,7 @@ const ProductUpdate = () => {
 
               <Typography align='center' style={{fontSize : "20px",margin : "10px 0px"}}>Product Update</Typography>
 
-            {Object.keys(singleProduct).length===0?<div>loading</div> : <>
+            {Object.keys(singleProduct).length===0?<LoaderComponent type={SMALL}/> : <>
           <TextField
             id="title"
             label="Title"

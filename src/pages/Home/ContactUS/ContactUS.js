@@ -1,23 +1,65 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './ContactUS.css';
 import leftimg from '../../../images/undraw_Profile_data_re_v81r.svg';
 import lleftimg from '../../../images/blogging.svg';
 import { contactAction } from './../../../redux/actions/contactActions';
 import { useDispatch } from 'react-redux';
+import SulovAlert from './../../../Components/SulovAlert/SulovAlert';
+import { initAlert } from '../../../constants/types';
+
+const defaultInfo = {
+
+    first_name : "",
+    last_name : "",
+    email : "",
+    mobile : "",
+    text : ""
+
+
+ }
 
 const ContactUS = () => {
 
-    const [info, setInfo] = React.useState({});
+    const [info, setInfo] = React.useState({
 
-    const [success,setSuccess] = React.useState(false);
+        ...defaultInfo
+       
+    });
 
+    const [alertOpen,setAlertOpen] = useState({...initAlert});
+
+  
     const dispatch = useDispatch();
+
+    
+    const callBack=()=>
+    {
+        setAlertOpen({
+
+            ...initAlert,
+
+            open : true,
+
+            type : "success",
+
+            message : "successfully send you message"
+
+
+
+
+        })
+
+        setInfo({...defaultInfo});
+
+
+    }
+
 
     const handleSubmit =(e)=>
     {
         e.preventDefault();
 
-        dispatch(contactAction(info,setSuccess))
+        dispatch(contactAction(info,callBack))
 
 
         console.log(info)
@@ -37,10 +79,13 @@ const ContactUS = () => {
       
     }
 
+    console.log('current',info)
+
 
 
     return (
         <div className="main-content">
+            <SulovAlert alertOpen={alertOpen} setAlertOpen={setAlertOpen}/>
             <div>
             <p className="contact-para">We Are Here</p>
             <h2 className="contact-title">Contact Us</h2>
@@ -59,28 +104,28 @@ const ContactUS = () => {
                             <div className="formBox">
                                 <div className="inputBox w50">
                                     <input type="text" required onChange={onChangeStatus}
-                                    name='first_name'></input>
+                                    name='first_name' value={info.first_name}></input>
                                     <span>First Name</span>
                                 </div>
                                 <div className="inputBox w50">
                                     <input type="text" required onChange={onChangeStatus}
-                                     name='last_name'></input>
+                                     name='last_name' value={info.last_name}></input>
                                     <span>Last Name</span>
                                 </div>
                                 <div className="inputBox w50">
                                     <input type="email" required onChange={onChangeStatus}
                                     
-                                    name='email'></input>
+                                    name='email' value={info.email}></input>
                                     <span>Email Address</span>
                                 </div>
                                 <div className="inputBox w50">
                                     <input type="number" required onChange={onChangeStatus}
-                                    name = "mobile"></input>
+                                    name = "mobile" value={info.mobile}></input>
                                     <span>Mobile Number</span>
                                 </div>
                                 <div className="inputBox w100">
                                     <textarea required onChange={onChangeStatus}
-                                  name = 'text'
+                                  name = 'text' value={info.text}
                                     ></textarea>
                                     <span>Write your message here</span>
                                 </div>

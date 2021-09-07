@@ -10,6 +10,7 @@ import NewProduct from './NewProduct/NewProduct';
 import RandomProduct from './RandomProduct/RandomProduct';
 import Footer from './../../Components/Footer/Footer';
 import { authAction } from './../../redux/actions/authAction';
+import LoaderComponent from '../../Components/LoaderComponent/LoaderComponent';
 
 
 const Home = () => {
@@ -38,6 +39,8 @@ const Home = () => {
 
     },[])
 
+    // console.log('process ',process.env.REACT_APP_admin1,process.env.REACT_APP_admin2);
+
 
 
 
@@ -46,6 +49,7 @@ const Home = () => {
     
       
          <React.Fragment>
+         
          
        <Header/>
 

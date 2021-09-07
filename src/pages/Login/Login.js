@@ -93,6 +93,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
 
+  const location=useLocation();
+
+  const {from}=location.state  || {from :{pathname:'/'}};
+
   const auth = useSelector(state=>state.auth)
 
   const {isSignedIn} = auth===undefined ? {} : auth;
@@ -149,7 +153,17 @@ export default function Login() {
     React.useEffect(()=>
     {
       if(isSignedIn===true)
-        return history.push('/');
+        {
+         const flag= from.pathname.includes('/sulov/admin/')
+
+         if(flag && (auth.email!=process.env.REACT_APP_admin1 && auth.email!=process.env.REACT_APP_admin2 ))
+         {
+           return history.push('/')
+          
+         }
+          else return history.push(from);
+
+        }
 
     },[isSignedIn])
 

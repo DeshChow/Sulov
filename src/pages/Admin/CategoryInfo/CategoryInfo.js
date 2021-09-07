@@ -5,6 +5,7 @@ import { Container, Typography, Grid, makeStyles, Button } from '@material-ui/co
 import { isLoading } from './../../../constants/isLoading';
 import CategoryCard from './../../../Components/AllCard/CategoryCard/CategoryCard';
 import { useHistory } from 'react-router'
+import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
 const useStyles = makeStyles((theme) => ({
     CategoryGrid:
     {
@@ -110,7 +111,7 @@ const CategoryInfo = () => {
                     <CategoryCard key={ct._id} data={ct}></CategoryCard>
                 </Grid>
             )
-             : <Grid>Loadding</Grid>
+             : <LoaderComponent/>
         }
     </Grid>
 </Container>

@@ -2,7 +2,7 @@
 import { sulovBaseUrl } from "../../sulovBaseUrl";
 const axios = require("axios");
 
-export const contactAction = (data,setSuccess) => async (dispatch) => {
+export const contactAction = (data,callBack) => async (dispatch) => {
 
 
 
@@ -15,7 +15,7 @@ export const contactAction = (data,setSuccess) => async (dispatch) => {
     console.log(res);
 
 
-    setSuccess(true);
+    callBack()
 
     return dispatch({
         type:"asddsad"

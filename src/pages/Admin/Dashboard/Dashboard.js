@@ -17,6 +17,7 @@ import LatestProducts from './LatestProducts';
 import LatestOrders from './LatestOrders';
 import TrafficByDevice from './TrafficByDevice'
 import { useSelector } from 'react-redux';
+import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
   
   const Dashboard = () =>{
 
@@ -25,6 +26,8 @@ import { useSelector } from 'react-redux';
     const {budget,userCount,taskProgress,latestProduct,latestOrder} = adminInitData;
      
      return  <React.Fragment>
+
+       {latestProduct===undefined ? <LoaderComponent/> : 
         
         <div >
         <Box
@@ -114,7 +117,7 @@ import { useSelector } from 'react-redux';
             </Grid>
           </Container>
         </Box>
-        </div>
+        </div>}
       </React.Fragment>
   }
     

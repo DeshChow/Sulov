@@ -11,6 +11,8 @@ import Box from "@material-ui/core/Box";
 
 import SaveIcon from "@material-ui/icons/Save";
 
+import LoaderComponent from "../../../../Components/LoaderComponent/LoaderComponent";
+
 const axios = require("axios");
 const ProductAdd = () => {
   const [info, setInfo] = useState({});
@@ -102,7 +104,7 @@ const ProductAdd = () => {
   };
 
   return !isLoading(category) ? (
-    <div>loading</div>
+    <LoaderComponent/>
   ) : (
     <>
       <CssBaseline />

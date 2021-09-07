@@ -27,3 +27,21 @@ export const USER_CONTACT = "USER_CONTACT"
 export const ORDER_HISTORY_LOAD = "ORDER_HISTORY_LOAD"
 
 export const SIGN_OUT = "SIGN_OUT"
+
+export const SMALL = "SMALL"
+
+export const initAlert = {
+
+    open : false,
+  
+    verticalPos:"top",
+    
+    horizontalPos:"right",
+  
+    type : "warning",
+  
+    message:"খুব শীঘ্রই চলে আসছে"
+  
+  
+    
+  }

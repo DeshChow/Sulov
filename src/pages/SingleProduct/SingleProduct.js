@@ -15,6 +15,9 @@ import StarOutlinedIcon from '@material-ui/icons/StarOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import Footer from '../../Components/Footer/Footer';
+import LoaderComponent from '../../Components/LoaderComponent/LoaderComponent';
+import { SMALL } from '../../constants/types';
+import { Loader } from 'react-feather';
 
 
 const SingleProduct = () => {
@@ -133,7 +136,7 @@ const SingleProduct = () => {
 
 
 
-            {Object.keys(singleProduct).length == 0 ? <div>loadding</div> :
+            {Object.keys(singleProduct).length == 0 ? <LoaderComponent/> :
 
 
                 <div>
@@ -151,7 +154,7 @@ const SingleProduct = () => {
 
                                     {
 
-                                        pic.map((picImg, idx) =>
+                                pic.length>1 &&        pic.map((picImg, idx) =>
                                             <div className="small-image-col" key={idx}>
                                                 <div>
                                                 <img onClick={() => handleClick(picImg)} src={picUrl(picImg)} className="smallImage"></img>
@@ -193,17 +196,7 @@ const SingleProduct = () => {
                             <p style={{fontSize: '16px',fontWeight:'400',color: '#26a541'}}>Special Price</p>
                             <h3 id="singleTaka">৳{price}</h3>
                             <p style={{color: 'gray'}}> <FiberManualRecordIcon style={{fontSize: '10px'}}/> {itemCount} of this product {itemCountStatus} in the store</p>
-                            {/* <h5>{status}</h5> */}
-                            {/* <select>
-                                <input type="number">Select Size</input>
-                                <option>Select Size</option>
-                                <option>XXL</option>
-                                <option>XL</option>
-                                <option>L</option>
-                                <option>M</option>
-                                <option>S</option>
-                            </select> */}
-
+                         
 
                             <div>
 
@@ -259,7 +252,7 @@ const SingleProduct = () => {
                            <h3 style={{textAlign: 'center',paddingTop: '20px',marginBottom: '20px'}}>
                             <span style={{  borderBottom: '1px solid #000'}}>More items to explore</span></h3>
                        
-                            <Grid container spacing={2} justify='center' wrap='wrap'>
+                            <Grid container spacing={2} justify='center' wrap='wrap' >
                             {
                                 isLoading(products) ?categoryProducts.map(ct =>
                                     <Grid item >
@@ -268,7 +261,7 @@ const SingleProduct = () => {
                                 
                                 )
                                 
-                                    : <Grid>Loadding</Grid>
+                                    :     <LoaderComponent type={SMALL}/>
 
                             }
                         </Grid>

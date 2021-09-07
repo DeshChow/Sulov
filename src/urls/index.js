@@ -32,3 +32,6 @@ export const userOrderUrl = ()=>
 
 export const productUpdateurl=(id)=>id===undefined?
    '/admin/product/:id' : `/admin/product/${id}`
+
+
+   export const loginUrl = () =>'/login'

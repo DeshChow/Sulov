@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { orderHistoryAction } from './../../../redux/actions/orderHistoryAction';
 import OrderHistoryCard from './../../../Components/OrderHistoryCard/OrderHistoryCard';
+import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
 
 const OrderHistory = () => {
 
@@ -30,7 +31,7 @@ const OrderHistory = () => {
 
     return (
 
-        allOrderHistory===undefined? <div>Loadding</div> : 
+        allOrderHistory===undefined? <LoaderComponent/> : 
         <div>
             {
                 allOrderHistory.map((data,idx)=><OrderHistoryCard key={idx}

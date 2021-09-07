@@ -11,7 +11,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Dashboard from "./Dashboard/Dashboard";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { adminInitAction } from "../../redux/actions/adminInitActions";
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
@@ -42,6 +42,8 @@ import CategoryInfo from "./CategoryInfo/CategoryInfo";
 import CategoryAdd from "./Category/CategoryAdd/CategoryAdd";
 import ProductUpdate from "./Product/ProductUpdate/ProductUpdate";
 import OrderHistory from './OrderHistory/OrderHistory';
+import { SIGN_OUT } from './../../constants/types';
+import { signOutAction } from "../../redux/actions/authAction";
 
 const user = {
   avatar: "/static/images/avatars/avatar_6.png",
@@ -131,13 +133,28 @@ export default function Admin() {
 
   const history = useHistory();
 
+  const auth = useSelector(state=>state.auth)
+
   const routeChange = (path) => {
+
+    if(path===SIGN_OUT)
+    return dispatch(signOutAction())
+
+    else
     history.push(`/sulov/admin/${path}`);
   };
 
   useEffect(() => {
     dispatch(adminInitAction());
   }, []);
+
+  useEffect(()=>
+  {
+
+    if(auth.email!=process.env.REACT_APP_admin1 && auth.email!=process.env.REACT_APP_admin2)
+      return  history.push(`/`);
+
+  },[])
 
   const PageComponent = () => {
     switch (id) {
@@ -170,13 +187,16 @@ export default function Admin() {
     }
   };
 
+
+  
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap>
-            Clipped drawer
+          <Typography variant="h6" noWrap style={{position : "absolute",right: "20px"}}>
+           {auth!==undefined && auth.name}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -241,8 +261,18 @@ export default function Admin() {
                 Order History
               </div>
             </List>
+
+           
           </Box>
         </div>
+        <Divider/>
+        <div
+                style={{ marginTop: "20px" }}
+                onClick={() => routeChange(SIGN_OUT)}
+              >
+                <ShoppingBagIcon />
+               Logout
+              </div>
       </Drawer>
       <main className={classes.content}>
         <PageComponent />

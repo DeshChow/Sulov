@@ -20,6 +20,8 @@ import Login from "./pages/Login/Login";
 import ProductUpdate from './pages/Admin/Product/ProductUpdate/ProductUpdate';
 import { productUpdate, productUpdateurl } from './urls/index';
 import Profile from "./pages/Profile/Profile";
+import PrivateRoute from './Components/PrivateRoute';
+import NotFound from './Components/NotFound/NotFound';
 
 export const UserContext = createContext();
 
@@ -59,23 +61,30 @@ function App() {
           <OrderDetails />
         </Route>
 
-        <Route path="/sulov/admin/:id">
+        <PrivateRoute path="/sulov/admin/:id">
+
+     
           <Admin />
-        </Route>
+     
+        </PrivateRoute>
 
         <Route path="/profile">
          
          <Profile/>
         </Route>
 
-        <Route path={userOrderUrl()}>
+        <PrivateRoute path={userOrderUrl()}>
           <UserContext.Provider value={[orderInfo, setOrderInfo]}>
             <CheckOut />
           </UserContext.Provider>
-        </Route>
+        </PrivateRoute>
 
         <Route path="/login">
           <Login />
+        </Route>
+
+        <Route path="*">
+          <NotFound></NotFound>
         </Route>
       </Switch>
     </Router>

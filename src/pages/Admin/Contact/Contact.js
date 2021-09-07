@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import UserContactCard from '../../../Components/UserContactCard/UserContactCard';
 import { userContactActions } from './../../../redux/actions/userContactActions';
+import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
 
  const useStyles = makeStyles(theme=>({
      title:{
@@ -99,7 +100,7 @@ const Contact = () => {
 
     return (
 
-        userContact===undefined?<div>Loading</div> :
+        userContact===undefined?<LoaderComponent/> :
         <div>
             {/* {
 

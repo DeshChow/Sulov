@@ -58,6 +58,8 @@ import { Container, Grid } from "@material-ui/core";
 import NavbarInside from "../../Components/NavbarInside/NavbarInside";
 import { categoryActions } from "./../../redux/actions/categoryActions";
 import { categoryUrl } from "./../../urls/index";
+import LoaderComponent from "../../Components/LoaderComponent/LoaderComponent";
+import NoData from "../../Components/NoData/NoData";
 
 
 const drawerWidth = 240;
@@ -133,7 +135,7 @@ function CategoryProduct() {
   // console.log('one ',category[0]);
 
   return category === undefined ? (
-    <div>Loading</div>
+    <LoaderComponent/>
   ) : (
 
     <>
@@ -182,13 +184,14 @@ function CategoryProduct() {
         <Container maxWidth="xl">
           <Grid container spacing={2} justify="center" wrap="wrap">
             {isLoading(products) ? (
+              products.length===0? <NoData/> :
               products.map((ct) => (
                 <Grid item>
                   <ProductCard key={ct._id} data={ct}></ProductCard>
                 </Grid>
               ))
             ) : (
-              <Grid>Loadding</Grid>
+              <LoaderComponent/>
             )}
           </Grid>
         </Container>
