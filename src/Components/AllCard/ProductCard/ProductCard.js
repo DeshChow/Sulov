@@ -38,7 +38,7 @@ const ProductCard = (props) => {
 
     return (
 
-        <Link to={productUrl(title,_id)}>
+        <Link to={productUrl(title,_id)} style={{textDecoration: 'none', color: 'black'}}>
         <div className="mainCard">
         <div className="cardContent">
 		 <div className="cornerStyle"></div>

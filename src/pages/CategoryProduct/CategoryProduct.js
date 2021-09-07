@@ -29,6 +29,7 @@ import { categoryActions } from "./../../redux/actions/categoryActions";
 import { categoryUrl } from "./../../urls/index";
 import LoaderComponent from "../../Components/LoaderComponent/LoaderComponent";
 import NoData from "../../Components/NoData/NoData";
+import CategoryIcon from '@material-ui/icons/Category';
 
 
 const drawerWidth = 240;
@@ -200,7 +201,7 @@ function CategoryProduct() {
               >
                 <ListItemIcon>
                 
-                  <InboxIcon />
+                  <CategoryIcon></CategoryIcon>
                 </ListItemIcon>
   
                 <ListItemText primary={data.alternativeTitle} />
@@ -220,9 +221,46 @@ function CategoryProduct() {
         backgroundColor: "#ededed",minHeight  : "100vh" }}>
         <Toolbar />
 
+       
+
+        
+
         <Container maxWidth="xl">
-        <TextField id="standard-basic" label="Standard"  onChange={onSearchChange} />
+
+            {/* <div className='box'> */}
+          
+              <div style={{display : "flex", justifyContent : "center",width : "100%",
+            textAlign : "center",marginBottom: '20px'}}>
+           
+                <form>
+
+              {/* <div style={{flexGrow : 1,textAlign : "center"}}> */}
+
+                  <input type="search" name="" placeholder="Type your search" onChange={onSearchChange} 
+                  
+                 >
+              </input>
+
+                <button type="button" className="btn btn-style" style={{height: '100%',background: '#00ab55'}}>
+                  <i className="fas fa-search"></i>
+                  </button>
+                  
+              {/* </div> */}
+            </form>
+
+
+              </div>
+  
+            
+             
+            
+         {/* </div> */}
+
+            {/* <TextField id="standard-basic" label="Standard"  onChange={onSearchChange} /> */}
+          
+
           <Grid container spacing={2} justify="center" wrap="wrap">
+           
             {isLoading(products) ? (
               products.length===0? <NoData/> :
               products.map((ct) => (
@@ -234,6 +272,7 @@ function CategoryProduct() {
               <LoaderComponent/>
             )}
           </Grid>
+          
         </Container>
         {/* <div className="container-fluid" style={ {backgroundColor: '#ededed'}}>
          <div className="d-flex  flex-wrap align-items-center justify-content-center stl">

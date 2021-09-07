@@ -20,7 +20,7 @@ import swal from 'sweetalert';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="textSecondary" align="center" style={{marginBottom: '20px'}}> 
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -141,7 +141,7 @@ function getStepContent(step) {
       
       <NavbarInside/>
        
-       <div style={{background : "#222B45" , width : "100%",top: "0",position : "absolute",minHeight : "100vh"}}>
+       <div style={{background : "white" , width : "100%",top: "0",position : "absolute",minHeight : "100vh"}}>
      
       <main className={classes.layout}>
         <Paper className={classes.paper}>
