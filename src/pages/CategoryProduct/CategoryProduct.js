@@ -9,37 +9,6 @@ import {
 } from "../../redux/actions/singleCategoryAction";
 import "./CategoryProduct.css";
 
-// const CategoryProduct = () => {
-
-//     const dispatch = useDispatch();
-
-//     const {id} = useParams();
-
-//   const data = useSelector(state => state.singleCategory);
-
-//   const {products} = data;
-
-//     useEffect(() => {
-
-//         dispatch(singleCategoryAction(id));
-
-//     }, []);
-//     return (
-//         <div>
-//            {
-//                isLoading(products) ? <div>
-
-//                    {
-//                        products.map(pd=><ProductCard key={pd._id} data={pd}/>)
-//                    }
-//                </div> : <p>loadding</p>
-
-//            }
-//         </div>
-//     );
-// };
-
-// export default CategoryProduct;
 
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -54,7 +23,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, TextField } from "@material-ui/core";
 import NavbarInside from "../../Components/NavbarInside/NavbarInside";
 import { categoryActions } from "./../../redux/actions/categoryActions";
 import { categoryUrl } from "./../../urls/index";
@@ -96,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
 function CategoryProduct() {
   const classes = useStyles();
 
+  // const [searchText,setSearchText] = React.useState('');
+
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -104,7 +75,9 @@ function CategoryProduct() {
 
   const category = useSelector((state) => state.category.category);
 
-  const { products } = data;
+  // const { products } = data;
+
+  const [products,setProducts] = React.useState([]);
 
   const history = useHistory();
 
@@ -120,16 +93,82 @@ function CategoryProduct() {
     return dispatch(clearSingleCategoryAction());
   }, [id]);
 
+ 
   useEffect(() => {
    
 
     dispatch(categoryActions());
 
+   
     return ()=>
     {
 
     }
-  }, []);
+  }, [id]);
+
+  useEffect(()=>
+  {
+    if(data!==undefined)setProducts(data.products);
+
+
+
+  },[data])
+
+
+
+  const onSearchChange=(e)=>
+  {
+
+    // console.log(e.target.value);
+
+    //   setSearchText(e.target.value);
+
+    const searchText = e.target.value.toLowerCase();
+
+      if(data!==undefined){
+        let newProducts = [...data.products];
+
+        newProducts=newProducts.filter(pd =>{
+          
+
+          if(pd.title.toLowerCase().includes(searchText))
+          return pd
+          
+        });
+
+        console.log('newww',  newProducts)
+
+        setProducts(newProducts);
+      }
+   
+
+
+     
+
+  }
+
+  // useEffect(()=>
+  // {
+  //    if(data!==undefined){
+  //       let newProducts = [...data.products];
+
+  //       newProducts=newProducts.filter(pd =>{
+  //         if(pd.title.includes(searchText))
+  //         return pd
+          
+  //       });
+
+  //       console.log('newww',  newProducts)
+
+  //       setProducts(newProducts);
+  //     }
+   
+
+
+
+  // },[searchText,id])
+
+  // console.log(searchText,products);
 
 
   // console.log('one ',category[0]);
@@ -182,6 +221,7 @@ function CategoryProduct() {
         <Toolbar />
 
         <Container maxWidth="xl">
+        <TextField id="standard-basic" label="Standard"  onChange={onSearchChange} />
           <Grid container spacing={2} justify="center" wrap="wrap">
             {isLoading(products) ? (
               products.length===0? <NoData/> :

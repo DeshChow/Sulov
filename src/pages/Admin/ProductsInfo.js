@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import AdminProductCard from "../../Components/AllCard/AdminProductCard/AdminProductCard";
 import { productUrl } from "../../urls";
 import { allProductActions } from "./../../redux/actions/allProductsActions";
-
+import AddIcon from '@material-ui/icons/Add';
 const ProductsInfo = () => {
   const history = useHistory();
 
@@ -30,9 +30,7 @@ const ProductsInfo = () => {
 
   return (
     <div>
-      {/* <div style={{background : "red",height : "100px",width : "200px",color : "white"}}>
-            dkfdsjk
-        </div> */}
+   
 
 <Grid
           container
@@ -43,7 +41,8 @@ const ProductsInfo = () => {
          
         >
           <Grid item xs={12}>
-            <Button onClick={handleClick} style={{ background: "white" }}>
+            <Button onClick={handleClick} style={{ background: "white" }}
+              startIcon={<AddIcon />}>
               ADD PRODUCT
             </Button>
           </Grid>

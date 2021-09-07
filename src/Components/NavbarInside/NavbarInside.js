@@ -93,6 +93,10 @@ const NavbarInside = () => {
 
     
       const toggleDrawer = (anchor, open) => (event) => {
+
+        console.log('okkk ',event);
+
+
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
         }
@@ -103,6 +107,8 @@ const NavbarInside = () => {
       const deleteProduct=(id)=>
       {
           console.log(id);
+
+         
          
         
         return dispatch(deleteShoppingActions(id));
@@ -134,7 +140,7 @@ const NavbarInside = () => {
 
 
            <Grid item>
-           <img className={classes.imageStyle} src={picUrl(pd.pic)}></img>
+           <img className={classes.imageStyle} src={picUrl(pd.pic)} alt=''></img>
 
 
 

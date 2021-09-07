@@ -2,6 +2,7 @@
     position: relative;
     padding: 20px;
     background: rgb(34, 43, 69);
+
   }
   
   .pricing-section a {
@@ -155,6 +156,7 @@
   .pricing-section .pricing-img-5 img,
   .pricing-section .pricing-img-6 img {
     max-width: 70%;
+    margin: auto;
   }
   .pricing-img-1 img,
   .pricing-img-2 img,
@@ -163,6 +165,9 @@
   .pricing-img-5 img,
   .pricing-img-6 img {
     max-width: 78%;
+
+    margin : auto;
+
   }
   .pricing-img-1:before,
   .pricing-img-2:before,
@@ -171,6 +176,7 @@
   .pricing-img-5:before,
   .pricing-img-6:before {
     left: 43%;
+   
     top: 28%;
   }
   
@@ -205,6 +211,7 @@
   .pricing-section .pricing-img-5 img,
   .pricing-section .pricing-img-6 img {
     max-width: 76%;
+   margin : auto;
     vertical-align: middle;
   }
   
@@ -333,6 +340,7 @@
     background: #fcded4;
     padding: 36px;
     max-width: 260px;
+    /* margin:  auto; */
     display: block;
     float: left;
     overflow: hidden;

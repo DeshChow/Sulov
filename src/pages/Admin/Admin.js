@@ -44,56 +44,12 @@ import ProductUpdate from "./Product/ProductUpdate/ProductUpdate";
 import OrderHistory from './OrderHistory/OrderHistory';
 import { SIGN_OUT } from './../../constants/types';
 import { signOutAction } from "../../redux/actions/authAction";
-
-const user = {
-  avatar: "/static/images/avatars/avatar_6.png",
-  jobTitle: "Senior Developer",
-  name: "Katarina Smith",
-};
-
-const items = [
-  {
-    href: "/app/dashboard",
-    icon: BarChartIcon,
-    title: "Dashboard",
-  },
-  {
-    href: "/app/customers",
-    icon: UsersIcon,
-    title: "Customers",
-  },
-  {
-    href: "/app/products",
-    icon: ShoppingBagIcon,
-    title: "Products",
-  },
-  {
-    href: "/app/account",
-    icon: UserIcon,
-    title: "Account",
-  },
-  {
-    href: "/app/settings",
-    icon: SettingsIcon,
-    title: "Settings",
-  },
-  {
-    href: "/login",
-    icon: LockIcon,
-    title: "Login",
-  },
-  {
-    href: "/register",
-    icon: UserPlusIcon,
-    title: "Register",
-  },
-  {
-    href: "/404",
-    icon: AlertCircleIcon,
-    title: "Error",
-  },
-];
-
+import GroupIcon from '@material-ui/icons/Group';
+import HistoryIcon from '@material-ui/icons/History';
+import CategoryIcon from '@material-ui/icons/Category';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import AdminPanel from './AdminPanel/AdminPanel';
 const drawerWidth = 180;
 
 const useStyles = makeStyles((theme) => ({
@@ -182,6 +138,12 @@ export default function Admin() {
       case "dashboard":
         return <Dashboard></Dashboard>
 
+      case "admin":
+        return <AdminPanel></AdminPanel>
+      
+      
+      
+
       default:
         return <ProductUpdate/>;
     }
@@ -212,7 +174,7 @@ export default function Admin() {
           <Box sx={{ p: 2 }}>
             <List>
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px",cursor : "pointer"  }}
                 onClick={() => routeChange("dashboard")}
               >
                 <BarChartIcon />
@@ -220,7 +182,7 @@ export default function Admin() {
               </div>
 
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px",cursor : "pointer"  }}
                 onClick={() => routeChange("customers")}
               >
                 <UsersIcon />
@@ -228,15 +190,16 @@ export default function Admin() {
               </div>
 
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px",cursor : "pointer"  }}
                 onClick={() => routeChange("categories")}
               >
-                <ShoppingBagIcon />
+                <CategoryIcon />
+                
                 Category
               </div>
 
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px",cursor : "pointer"  }}
                 onClick={() => routeChange("products")}
               >
                 <ShoppingBagIcon />
@@ -246,20 +209,30 @@ export default function Admin() {
 
 
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px" ,cursor : "pointer" }}
                 onClick={() => routeChange("contact")}
               >
-                <ShoppingBagIcon />
+                <GroupIcon />
                 User Contact
               </div>
 
               <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px" ,cursor : "pointer" }}
                 onClick={() => routeChange("orderhistory")}
               >
-                <ShoppingBagIcon />
+                <HistoryIcon />
                 Order History
               </div>
+
+              <div
+                style={{ marginTop: "20px",cursor : "pointer" }}
+                onClick={() => routeChange("admin")}
+              >
+                <SupervisorAccountIcon />
+               Admin
+              </div>
+
+              
             </List>
 
            
@@ -270,7 +243,7 @@ export default function Admin() {
                 style={{ marginTop: "20px" }}
                 onClick={() => routeChange(SIGN_OUT)}
               >
-                <ShoppingBagIcon />
+                <ExitToAppIcon/>
                Logout
               </div>
       </Drawer>

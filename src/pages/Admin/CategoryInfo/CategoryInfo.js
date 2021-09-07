@@ -6,6 +6,7 @@ import { isLoading } from './../../../constants/isLoading';
 import CategoryCard from './../../../Components/AllCard/CategoryCard/CategoryCard';
 import { useHistory } from 'react-router'
 import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
+import AddIcon from '@material-ui/icons/Add';
 const useStyles = makeStyles((theme) => ({
     CategoryGrid:
     {
@@ -86,7 +87,8 @@ const CategoryInfo = () => {
 
 <Grid container justifyContent='center'>
 <Grid item xs={12}>
-            <Button onClick={handleClick} style={{ background: "white" }}>
+            <Button onClick={handleClick} style={{ background: "white" }}
+              startIcon={<AddIcon />}>
               ADD Category
             </Button>
           </Grid>

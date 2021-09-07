@@ -8,6 +8,8 @@ import NewProductDesign from './NewProductDesign';
 
 import { Grid } from '@material-ui/core';
 import { ConfirmationNumber, SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
+import LoaderComponent from '../../../Components/LoaderComponent/LoaderComponent';
+import { SMALL } from '../../../constants/types';
 
 const NewProduct = () => {
 
@@ -22,8 +24,12 @@ const NewProduct = () => {
 
     const handleProductChange = (idx)=>
     {
+        // console.log('idxxxx ',idx)
+        setData(newlyAddedProduct[idx]);
 
-        console.log('ok ',newlyAddedProduct[idx])
+        
+
+        // console.log('ok ',data)
 
    
     
@@ -38,25 +44,32 @@ const NewProduct = () => {
 
     },[newlyAddedProduct])
 
+    console.log('test ',data)
+
     // console.log(active)
 
 //    // console.log(newlyAddedProduct,data);
 
     return (
-        !isLoading(newlyAddedProduct)? <div>loadding</div> : 
+        (!isLoading(newlyAddedProduct) || data===undefined)? <LoaderComponent type={SMALL}/> : 
         <section className="pricing-section" id="pricing">
-                <Container className="my-md-5">
-                    <Col xs={12}>
-                        <div className="pricing-title text-center">
+                <Container className="my-md-5" >
+                    <Col xs={12} >
+                        <div className="pricing-title text-center" >
                             <span>New For You</span>
                             <h2>New Arrival Product</h2>
                         </div>
                     </Col>
-                    <Row>
+                    <Row >
                         <Col xs={12}>
-                            <Tab.Container defaultActiveKey="1">
-                                <Nav className="pricing-nav" onClick = {()=>handleProductChange(0)}>
-                                    <Nav.Item className="pricing-content-1">
+                            <Tab.Container defaultActiveKey="1" >
+                                <Nav className="pricing-nav"  style={{
+
+            display : "flex",
+            justifyContent : "center",
+            
+            textAlign : "center"}} >
+                                    <Nav.Item className="pricing-content-1" onClick = {()=>handleProductChange(0)}>
                                         <Nav.Link eventKey="1">
                                             <img alt="" src={picUrl(newlyAddedProduct[0].pic)} width="35" height="35" />
                                         </Nav.Link>
@@ -89,12 +102,7 @@ const NewProduct = () => {
                                 </Nav>
                                 <Tab.Content>
 
-                                {
-                                    
-                                           
-        //  newlyAddedProduct.map((data, idx) => <NewProductDesign key={idx} id={idx} data={data} />)
-                                    }
-
+                     
                                     
                                 </Tab.Content>
                             </Tab.Container>
@@ -104,11 +112,11 @@ const NewProduct = () => {
                    
                 </Container>
 
-                <Grid container justify='center' style={{textAlign : "center"}}>
+                <Grid container justify='center' style={{textAlign : "center",padding: "30px"}}>
 
 <Grid item xs={12}>
 
-      {/* <NewProductDesign  data={data} />) */}
+      <NewProductDesign  data={data} />)
 </Grid>
 
 
