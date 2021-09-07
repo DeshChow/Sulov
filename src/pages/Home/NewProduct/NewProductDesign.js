@@ -13,34 +13,32 @@ const NewProductDesign = (props) => {
 
     console.log('on hit',title);
 
-
+  let id =10;
 
 
 
     return (
 
-        <Paper elevation={5} style={{background : "white", padding : "20px",width : "50%",margin : "10px auto"}}>
+        // <Paper elevation={5} style={{background : "white", padding : "20px",width : "50%",margin : "10px auto"}}>
 
 
-            {title}
+        //     {title}
 
-            {/* <img src={pic}></img> */}
-        </Paper>
+        //     {/* <img src={pic}></img> */}
+        // </Paper>
         // <Tab.Pane eventKey={id + 1}>
-        //     <Row >
-        //         <Col lg={12} md={12} xs={12}>
+      
                   
-        //                 <div className={`pricing-img-${id + 1}`}>
-        //                     <div className={`pricing-text-${id + 1}`}>
-        //                         <span><small>$</small>{price}</span>
-        //                         <h4><Link to="/">{title}</Link></h4>
-        //                         {/* <p>{description.slice(0, 94)}</p> */}
-        //                     </div>
-        //                     <img style={{height:'20%'}} src={picUrl(pic)} alt="" />
-        //                 </div>
+                        <div style={{color : "white"}} className={`pricing-img-${id + 1}`}>
+                            <div className={`pricing-text-${id + 1}`}>
+                                <span><small>$</small>{price}</span>
+                                <h4><Link to="/">{title}</Link></h4>
+                                {/* <p>{description.slice(0, 94)}</p> */}
+                            </div>
+                            <img style={{height:'20%'}} src={picUrl(pic)} alt="" />
+                        </div>
                   
-        //         </Col>
-        //     </Row>
+             
         // </Tab.Pane>
     );
 };

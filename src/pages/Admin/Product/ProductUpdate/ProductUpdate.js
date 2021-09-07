@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { singleClearProductAction, singleProductAction } from './../../../../redux/actions/singleProductAction';
 import  TextField  from '@material-ui/core/TextField';
@@ -32,6 +32,8 @@ const ProductUpdate = () => {
 
     const [data,setData] = useState({});
 
+    const history  = useHistory();
+
     const handleSubmit=async()=>
     {
 
@@ -49,6 +51,8 @@ const ProductUpdate = () => {
         try{
 
             const res = await axios.put(`http://localhost:5000/product/${id}`, { ...data });
+
+            history.push('/sulov/admin/products')
 
             console.log(res);
 

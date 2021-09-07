@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { CssBaseline, Container, Paper, Box , Button,makeStyles, Grid, Typography } from "@material-ui/core";
 
 import SaveIcon from '@material-ui/icons/Save';
+import { useHistory } from 'react-router';
+import { HistoryOutlined } from '@material-ui/icons';
 
 
 const CategoryAdd = () => {
 
     const [file,setFile] = useState(null);
+
+    const history = useHistory();
 
     // const [title,setTitle]=useState('');
 
@@ -45,6 +49,8 @@ const CategoryAdd = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
+
+                history.push('/sulov/admin/categories')
 
                
             })
