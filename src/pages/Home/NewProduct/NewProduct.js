@@ -43,7 +43,9 @@ const NewProduct = () => {
 //    // console.log(newlyAddedProduct,data);
 
     return (
+        
         !isLoading(newlyAddedProduct)? <div>loadding</div> : 
+        <div id="newproduct">
         <section className="pricing-section" id="pricing">
                 <Container className="my-md-5">
                     <Col xs={12}>
@@ -115,6 +117,8 @@ const NewProduct = () => {
 
 </Grid>
         </section>
+
+</div>
 
 
 

@@ -53,6 +53,8 @@ const Home = () => {
          
        <Header/>
 
+
+
          <MainCategory/>
          
              <RandomProduct/> 

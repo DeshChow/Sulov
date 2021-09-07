@@ -81,6 +81,7 @@ const RandomProduct = () => {
   const history = useHistory()
 
   return (
+    <div id="randomProduct">
     <Container maxWidth="xl" className={classes.randomRoot}>
       <Typography className={classes.headP} gutterBottom>
         You Can Like
@@ -127,6 +128,7 @@ const RandomProduct = () => {
         )}
       </Carousel>
     </Container>
+    </div>
   );
 };
 

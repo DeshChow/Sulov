@@ -65,7 +65,7 @@ const MainCategory = () => {
 
 
     return (
-
+         <div id="category">
         <Container className={classes.CategoryGrid} maxWidth='xl'>
                 <img className="spimg" src={spimg} alt="spimg" />
                 <Container maxWidth="md" >
@@ -88,7 +88,8 @@ const MainCategory = () => {
             </Grid>
         </Container>
         </Container>
-
+        </div>
+    
 
         //         <div className='container-fluid' style={{ background: 'red' }} >
 
@@ -116,7 +117,7 @@ const MainCategory = () => {
         //     </div>
         //     </div>
         //     </div>
-
+       
 
     );
 };
