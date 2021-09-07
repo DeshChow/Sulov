@@ -220,7 +220,7 @@ const NavbarInside = () => {
      <AppBar  position="fixed" className={classes.appBar}>
         <Toolbar>
        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
-        <div>
+        <div style={{width: '80%'}}>
           <Typography variant="h6" nowrap>
              <a className="logo-container">
                   <i className="fas fa-shopping-cart fa-lg"> </i>
@@ -229,9 +229,10 @@ const NavbarInside = () => {
           </Typography>
         </div>
           
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',width: '20%'}}>
           <div>
-          {name}
+
+            <span style={{color: "#00ab45", fontSize: '16px'}}> {name} </span>
 
           </div>
 
@@ -239,7 +240,7 @@ const NavbarInside = () => {
               <Button onClick={toggleDrawer('right', true)}> 
                 <IconButton aria-label="cart">
                   <StyledBadge badgeContent={productCount} color="secondary">
-                    <ShoppingCartIcon color='secondary' />
+                    <ShoppingCartIcon style={{color: '#00ab45'}} />
                        </StyledBadge>
                 </IconButton>
               </Button>
@@ -249,9 +250,8 @@ const NavbarInside = () => {
           </div>
 
           <div>
-          { isSignedIn?  <button onClick={logOut}>
-
-              Logout
+          { isSignedIn?  <button onClick={logOut} className="sign-btn"  >
+              <span style={{color: 'white',padding: '12px',fontSize: '16px'}}>Logout</span>
             </button> : <button onClick={()=>history.push('/login')}>
 
               sign in

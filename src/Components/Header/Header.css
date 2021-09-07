@@ -151,7 +151,7 @@ a:hover{
 } */
 
 .box{
-  position: absolute;
+  /* position: absolute; */
   margin-left: 200px ;
   width: 500px;
 }

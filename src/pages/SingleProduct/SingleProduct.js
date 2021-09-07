@@ -271,9 +271,9 @@ const SingleProduct = () => {
 
                     </>
                 </div>
-                <div  style={{marginTop: '120px'}}>
+                {/* <div  style={{marginTop: '120px'}}>
                     <Footer></Footer>
-                </div>
+                </div> */}
                 </div>}
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useContext,useState } from 'react';
 
-import Typography from '@material-ui/core/Typography';
+import {Button,Typography}  from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -137,7 +137,9 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
                   <CardElement options={CARD_OPTIONS}/>
               </div>
           </fieldset>
-          <button>Pay</button>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <Button style={{color: '#fff', backgroundColor: '#3f51b5', marginTop: '30px'}}>Pay</Button>
+          </div>
       </form>
       :
      <div>
