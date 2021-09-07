@@ -115,7 +115,7 @@ const Footer = () => {
                                             <Link to="/" onClick={scrollHandler}>Services</Link>
                                         </li>
                                         <li>
-                                            <Link to="/" onClick={scrollHandler}>Our Doctors</Link>
+                                            <Link to="/" onClick={scrollHandler}>Our Customers</Link>
                                         </li>
                                         <li>
                                             <Link to="/" onClick={scrollHandler}>Our Products</Link>
@@ -144,18 +144,18 @@ const Footer = () => {
                                         <span className="animate-border border-black"></span>
                                     </div>
                                     <p>
-                                    We treat the patients with the care and love they deserve.
+                                    We treat the customers with the care and love they deserve.
                                         </p>
-                                    <Form>
+                                    {/* <Form>
                                         <Form.Row>
                                             <Col className="dk-footer-form">
                                                 <Form.Control type="email" placeholder="Email Address" />
                                                 <button type="submit">
-                                                    {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
+                                                    <FontAwesomeIcon icon={faPaperPlane} />
                                                 </button>
                                             </Col>
                                         </Form.Row>
-                                    </Form>
+                                    </Form> */}
                                 </div>
                             </Col>
                         </Row>
@@ -166,7 +166,7 @@ const Footer = () => {
                 <Container>
                     <Row>
                         <Col md={6} className="order-2 order-md-1">
-                            <span>Copyright © {new Date().getFullYear()}, All Rights Reserved Inahle care</span>
+                            <span>Copyright © {new Date().getFullYear()}, All Rights Reserved Sulov</span>
                         </Col>
                         <Col md={6} className="order-1 order-md-2">
                             <div className="copyright-menu">

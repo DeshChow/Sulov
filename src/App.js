@@ -68,10 +68,10 @@ function App() {
      
         </PrivateRoute>
 
-        <Route path="/profile">
+        <PrivateRoute path="/profile">
          
          <Profile/>
-        </Route>
+        </PrivateRoute>
 
         <PrivateRoute path={userOrderUrl()}>
           <UserContext.Provider value={[orderInfo, setOrderInfo]}>

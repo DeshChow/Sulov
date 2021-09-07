@@ -7,6 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { adminInitAction, getAllCustomersInfo } from '../../redux/actions/adminInitActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { picUrl } from '../../constants/picUrl';
+import LoaderComponent from '../../Components/LoaderComponent/LoaderComponent';
 
  const useStyles = makeStyles(theme=>({
      title:{
@@ -112,7 +113,7 @@ const CustomersInfo = () => {
     }
 
 
-  return customers==undefined ? <div> huiuhiu </div> : <>
+  return customers==undefined ?  <LoaderComponent/> : <>
           <div className={classes.title}>
             <h1>Customer's List</h1>
             <span></span>

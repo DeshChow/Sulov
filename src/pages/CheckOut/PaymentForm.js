@@ -15,6 +15,8 @@ import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux';
 import { TotalProductPrice } from './../../utilities/totalProductPrice';
 import { clearShoppingCart } from './../../redux/actions/shoppingCartActions';
+import SulovAlert from '../../Components/SulovAlert/SulovAlert';
+import { initAlert } from '../../constants/types';
 
 
 const CARD_OPTIONS = {
@@ -57,6 +59,8 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
   const userInfo = useSelector(st=>st.auth._id);
 
   const dispatch = useDispatch();
+
+  const [alertOpen,setAlertOpen] = useState({...initAlert})
 
   
 
@@ -114,6 +118,17 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
 
               setOrderInfo({});
 
+              setAlertOpen({
+
+                ...initAlert,
+
+                open : true,
+
+                type : "success",
+
+                message : "Successful payment"
+              })
+
               
           }
 
@@ -131,6 +146,8 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
   return (
       <>
       {!success ? 
+      <>
+      <SulovAlert alertOpen={alertOpen} setAlertOpen = {setAlertOpen}/>
       <form onSubmit={handleSubmit}>
           <fieldset className="FormGroup">
               <div className="FormRow">
@@ -138,9 +155,11 @@ export default function PaymentForm({setActiveStep,setOrderId}) {
               </div>
           </fieldset>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <Button style={{color: '#fff', backgroundColor: '#3f51b5', marginTop: '30px'}}>Pay</Button>
+          <Button type='submit' style={{color: '#fff', backgroundColor: '#3f51b5', marginTop: '30px'}}>Pay</Button>
           </div>
       </form>
+
+      </>
       :
      <div>
          <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>

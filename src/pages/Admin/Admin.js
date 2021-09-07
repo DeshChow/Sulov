@@ -158,6 +158,12 @@ export default function Admin() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+          <Typography>
+                <a className="logo-container">
+                        <i className="fas fa-shopping-cart fa-lg"> </i>
+                        <h4 className="logo">Sulov</h4>
+                </a>
+          </Typography>
           <Typography variant="h6" noWrap style={{position : "absolute",right: "20px"}}>
            {auth!==undefined && auth.name}
           </Typography>
@@ -241,7 +247,7 @@ export default function Admin() {
         </div>
         <Divider/>
         <div
-                style={{ marginTop: "20px" }}
+                style={{ marginTop: "20px" ,marginLeft: '15px'}}
                 onClick={() => routeChange(SIGN_OUT)}
               >
                 <ExitToAppIcon/>

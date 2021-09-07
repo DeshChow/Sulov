@@ -19,14 +19,14 @@ import {
     root : {
 
         minHeight : "100px",
-        background : "#222B36"
+        background : "#1A2138"
 
 
 
     },
     title : {
 
-        fontSize : "14px",
+        fontSize : "16px",
         color : "white"
     },
     content : {
@@ -76,7 +76,7 @@ import {
               variant="h6"
               className ={classes.title}
             >
-                TOTAL CUSTOMERS
+                Progress Overview
             </Typography>
             <Typography
               color="textPrimary"

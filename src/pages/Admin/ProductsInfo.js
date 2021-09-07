@@ -41,7 +41,7 @@ const ProductsInfo = () => {
          
         >
           <Grid item xs={12}>
-            <Button onClick={handleClick} style={{ background: "white" }}
+            <Button onClick={handleClick} style={{ background: "#1A2138",color: 'white' }}
               startIcon={<AddIcon />}>
               ADD PRODUCT
             </Button>

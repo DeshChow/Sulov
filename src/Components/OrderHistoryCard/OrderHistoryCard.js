@@ -118,7 +118,7 @@ const OrderHistoryCard = (props) => {
 
                <div>
                     <div>
-                        <h3>Buyer's Info</h3>
+                        <h3 style={{textAlign: 'left'}}>Buyer's Info</h3>
                         <span className="animate-border-order"></span>
                     </div>
                     <br></br>
@@ -232,7 +232,7 @@ userContact.map(contact=><UserContactCard contact={contact} key={contact._id}/>)
             <div>
                  <br></br>
                  <br></br>
-                <h3>Buyer's Payment</h3>
+                <h3 style={{textAlign: 'left'}}>Buyer's Payment</h3>
                 <span className="animate-border-payment"></span>
                 <br></br>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>

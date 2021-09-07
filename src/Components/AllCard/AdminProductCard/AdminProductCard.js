@@ -171,7 +171,7 @@ const AdminProductCard = (props) => {
 
                     <div style={{flexGrow : 1,width : "50%"}}>
 
-                    <Button style={{background : 'green',
+                    <Button style={{background : '#17A2B8',
                     color : "white",
                     width : '80%'
 

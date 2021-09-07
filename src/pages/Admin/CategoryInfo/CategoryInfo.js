@@ -87,10 +87,7 @@ const CategoryInfo = () => {
 
 <Grid container justifyContent='center'>
 <Grid item xs={12}>
-            <Button onClick={handleClick} style={{ background: "white" }}
-              startIcon={<AddIcon />}>
-              ADD Category
-            </Button>
+         
           </Grid>
     </Grid>
         <Container className={classes.CategoryGrid} maxWidth='xl'>
@@ -105,6 +102,12 @@ const CategoryInfo = () => {
         <Typography className={classes.head} gutterBottom>
                     Find Your Category
         </Typography> */}
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginBottom: '20px'}}>
+           <Button onClick={handleClick} style={{ background: "#1A2138",color: 'white'}}
+              startIcon={<AddIcon />}>
+              ADD Category
+            </Button>
+        </div>
     <Grid className={classes.GridStyle} container spacing={4} justify='center'>
         {
             isLoading(category) ? category.map(ct =>

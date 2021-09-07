@@ -20,7 +20,7 @@ import {
     root : {
 
         minHeight : "100px",
-        background : "#222B36"
+        background : "#1A2138"
 
 
 

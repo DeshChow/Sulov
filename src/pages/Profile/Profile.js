@@ -24,15 +24,22 @@ const Profile = () => {
         <Container component={Box} p={1} style={{marginTop : "70px"}}>
           <Paper component={Box} >
 
-          <img src='https://images.squarespace-cdn.com/content/v1/5cb7bce8aadd3403319e4502/1592927445885-DJPW9ANXRN9ZVNDP14RF/resume-writing-linkedin-optimization.jpg?format=2500w'
+          <img src='https://wallpapercave.com/wp/wp3537546.jpg'
           
           style={{width : "100%",height : "35vh"}} alt=''></img>
 
           <div style={{textAlign : "center"}}>
 
-          <img 
+            {pic===null || pic===undefined ?   <img 
+          src={"https://png.pngtree.com/png-vector/20190224/ourlarge/pngtree-vector-avatar-icon-png-image_699747.jpg"} style={{marginTop : "-60px",width : "120px",height : "120px",
+          textAlign : "center",borderRadius : "50%"}} alt=''/> :
+            <img 
           src={pic} style={{marginTop : "-60px",width : "120px",height : "120px",
           textAlign : "center",borderRadius : "50%"}} alt=''/>
+            
+          }
+
+         
 
 <h3 style={{	fontSize : "20px"}}><strong>{name}</strong></h3>
 

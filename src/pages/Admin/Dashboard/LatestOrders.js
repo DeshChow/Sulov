@@ -88,13 +88,15 @@ const LatestOrders = ({latestOrder}) => {
 
      const dateConvert=(date)=>
      {
-       const str = (new Date(Date.now(date)));
+       const str = new Date( Number(date));
 
        console.log(str,typeof(str));
 
 
      return str.toDateString() ;
      }
+
+     console.log('latestOrder ',latestOrder)
 
    
 
@@ -106,26 +108,28 @@ const LatestOrders = ({latestOrder}) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
-                Order Ref
+              <TableCell style={{background: '#1A2138' ,color: 'white'}}>
+                Order Reference
               </TableCell>
-              <TableCell>
+              <TableCell style={{background: '#1A2138' ,color: 'white'}}>
                 Customer
               </TableCell>
-              <TableCell sortDirection="desc">
+              <TableCell sortDirection="desc"  style={{background: '#1A2138' ,color: 'white'}}>
                 <Tooltip
                   enterDelay={300}
                   title="Sort"
+                 
                 >
                   <TableSortLabel
                     active
                     direction="desc"
+                     style={{background: '#1A2138' ,color: 'white'}}
                   >
                     Date
                   </TableSortLabel>
                 </Tooltip>
-              </TableCell>
-              <TableCell>
+              </TableCell >
+              <TableCell style={{background: '#1A2138' ,color: 'white'}}>
                 Status
               </TableCell>
             </TableRow>
@@ -145,7 +149,7 @@ const LatestOrders = ({latestOrder}) => {
                  {order._id.slice(order._id.length-6,order._id.length)}
                 </TableCell>
                 <TableCell style={{textTransform: 'capitalize'}}>
-                  {order.orderInfo.name}
+                  {order.orderInfo.userAddress.firstName}
                 </TableCell>
                 <TableCell>
                
@@ -154,7 +158,7 @@ const LatestOrders = ({latestOrder}) => {
                 <TableCell>
                   <Chip
                     color="primary"
-                    label={order.status}
+                    label={"Available"}
                     size="small"
                   />
                 </TableCell>

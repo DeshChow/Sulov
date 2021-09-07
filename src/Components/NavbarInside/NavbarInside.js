@@ -183,7 +183,7 @@ const NavbarInside = () => {
 
               <Grid item>
 
-                  <Button onClick={()=>deleteProduct(pd.id)} variant='contained' color='secondary'> Delete</Button>
+                  <Button onClick={()=>deleteProduct(pd.id)} variant='contained' color='secondary' style={{marginTop: '5px'}}> Delete</Button>
 
                   </Grid>
 
@@ -196,7 +196,7 @@ const NavbarInside = () => {
 
             <Grid container alignItems='center' justify='center'>
 
-            <Button onClick={cartClear} variant='contained' color='secondary'> Clear Cart</Button>
+            <Button onClick={cartClear} variant='contained' color='secondary' style={{marginBottom: '10px'}}> Clear Cart</Button>
 
 
     <Button onClick={routeChange} variant='contained' color='secondary'> Proceed to cart </Button>
@@ -222,21 +222,21 @@ const NavbarInside = () => {
        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
         <div style={{width: '80%'}}>
           <Typography variant="h6" nowrap>
-             <a className="logo-container">
+             <a className="logo-container" href='/' style={{textDecoration : "none"}}>
                   <i className="fas fa-shopping-cart fa-lg"> </i>
                   <h4 className="logo">Sulov</h4>
              </a>
           </Typography>
         </div>
           
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',width: '20%'}}>
+   <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',width: '20%'}}>
           <div>
 
-            <span style={{color: "#00ab45", fontSize: '16px'}}> {name} </span>
-
+         <span onClick={()=>history.push('/profile')} style={{color: "#00ab45", fontSize: '16px',cursor : "pointer"}}> {name} </span>
           </div>
-
-           <div>
+      
+           <div> 
+          
               <Button onClick={toggleDrawer('right', true)}> 
                 <IconButton aria-label="cart">
                   <StyledBadge badgeContent={productCount} color="secondary">
@@ -252,9 +252,9 @@ const NavbarInside = () => {
           <div>
           { isSignedIn?  <button onClick={logOut} className="sign-btn"  >
               <span style={{color: 'white',padding: '12px',fontSize: '16px'}}>Logout</span>
-            </button> : <button onClick={()=>history.push('/login')}>
+            </button> : <button onClick={()=>history.push('/login')}  className="sign-btn" >
 
-              sign in
+               <span style={{color: 'white',padding: '12px',fontSize: '16px'}}>Sign In</span>
             </button> 
 }
             
