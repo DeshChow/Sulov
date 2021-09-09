@@ -142,5 +142,7 @@ input::-webkit-inner-spin-button {
 
 .main-img{
     margin-top: 40px;
-    width: 60%;
+    width:480px;
+   height : 480px;
+    /* max-height : 550px; */
 }

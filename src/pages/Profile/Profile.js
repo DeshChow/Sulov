@@ -1,16 +1,28 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import NavbarInside from '../../Components/NavbarInside/NavbarInside';
 import { Container, CssBaseline, Paper } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import OrderHistoryCard from './../../Components/OrderHistoryCard/OrderHistoryCard';
+import { authAction } from './../../redux/actions/authAction';
 
 const Profile = () => {
 
 
     const auth = useSelector(state=>state.auth);
 
+    const dispatch = useDispatch()
+
     const {pic,name,email,orderHistory} = auth===undefined ? {} : auth;
+
+
+    useEffect(()=>
+    {
+       dispatch(authAction({
+        email : auth.email
+    })) 
+
+    },[])
 
     
 

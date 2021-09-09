@@ -36,6 +36,8 @@ const ProductAdd = () => {
   const handleFileChange = (e) => {
     const newFile = e.target.files;
 
+    console.log('newFile ',newFile);
+
     setFile(newFile);
 
     console.log(newFile);
